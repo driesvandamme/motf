@@ -1,1 +1,9 @@
-[{"Type_brand":"1 reeks","Name_brand":"BMW","ID":"1"},{"Type_brand":"2 reeks Active Tourer","Name_brand":"Citroën","ID":"2"},{"Type_brand":"X1","Name_brand":"Peugeot","ID":"3"},{"Type_brand":"I3","Name_brand":"Audi","ID":"4"},{"Type_brand":"3 reeks","Name_brand":"Mercedes","ID":"5"},{"Type_brand":"X2","Name_brand":"Volkswagen","ID":"6"}]
+[
+	{"Type_brand":"1 reeks", "ID":"1"},
+	{"Type_brand":"2 reeks Active Tourer", "ID":"2"},
+	{"Type_brand":"3 reeks", "ID":"3"},
+	{"Type_brand":"X1", "ID":"4"},
+	{"Type_brand":"X2", "ID":"5"},
+	{"Type_brand":"i3", "ID":"6"},
+	{"Type_brand":"i8", "ID":"7"}
+]

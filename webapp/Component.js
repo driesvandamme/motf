@@ -24,11 +24,14 @@ sap.ui.define([
 			
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			
 			// set the FLP model
 			this.setModel(models.createFLPModel(), "FLP");
+			
+			// set the Settings model
+			this.setModel(models.createSettingsModel(), "settings");
 
 			// set the dataSource model
-			debugger;
 			this.setModel(new sap.ui.model.json.JSONModel({
 				"uri": "/here/goes/your/serviceUrl/local/"
 			}), "dataSource");

@@ -15,6 +15,7 @@
                 <EntitySet Name="Grafiek_puntenSet" EntityType="3aea2048297d661d0f522b63.Grafiek_punten" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
                 <EntitySet Name="Taart_transport2Set" EntityType="3aea2048297d661d0f522b63.Taart_transport2" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
                 <EntitySet Name="Grafiek_punten2Set" EntityType="3aea2048297d661d0f522b63.Grafiek_punten2" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="BrandSet" EntityType="3aea2048297d661d0f522b63.Merk" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
             </EntityContainer>
             <EntityType Name="Home_address">
                 <Key>
@@ -86,6 +87,13 @@
                 </Key>
                 <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
                 <Property Name="Score" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Score"/>
+            </EntityType>
+            <EntityType Name="Merk">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Brand"/>
             </EntityType>
             <EntityType Name="Taart_transport">
                 <Key>

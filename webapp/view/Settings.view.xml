@@ -1,10 +1,7 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Settings" xmlns:core="sap.ui.core"
-	xmlns="sap.m">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="com.sap.build.standard.hackathon2018.controller.Settings">
 	<Page showHeader="true" title="Settings" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
 		<content>
-			<List id="sap_Responsive_Page_0-content-sap_m_List-1519346905118" mode="SingleSelectLeft" width="100%" headerText="Home address"
-				footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-				items="{/Home_addressSet}">
+			<List id="sap_Responsive_Page_0-content-sap_m_List-1519346905118" mode="SingleSelectLeft" width="100%" headerText="Home address" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" items="{/Home_addressSet}">
 				<infoToolbar>
 					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 						<content>
@@ -14,16 +11,14 @@
 				</infoToolbar>
 				<headerToolbar/>
 				<items>
-					<ObjectListItem intro="" title="{Street}" icon="sap-icon://home" number="{House_number}" numberUnit="{City}" numberState="None"
-						type="Active" selected="true" showMarkers="false">
+					<ObjectListItem intro="" title="{Street}" icon="sap-icon://home" number="{House_number}" numberUnit="{City}" numberState="None" type="Active" selected="true" showMarkers="false">
 						<attributes/>
 						<firstStatus/>
 						<secondStatus/>
 					</ObjectListItem>
 				</items>
 			</List>
-			<List mode="SingleSelectLeft" width="100%" headerText="Work address" footerText="" backgroundDesign="Solid" showSeparators="All"
-				growing="true" growingThreshold="20" growingScrollToLoad="true" items="{/Work_addressSet}">
+			<List mode="SingleSelectLeft" width="100%" headerText="Work address" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" items="{/Work_addressSet}">
 				<infoToolbar>
 					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 						<content>
@@ -33,49 +28,52 @@
 				</infoToolbar>
 				<headerToolbar/>
 				<items>
-					<ObjectListItem intro="" title="{Street}" icon="sap-icon://factory" number="{Street_number}" numberUnit="{City}" numberState="None"
-						type="Active" selected="true" showMarkers="false">
+					<ObjectListItem intro="" title="{Street}" icon="sap-icon://factory" number="{Street_number}" numberUnit="{City}" numberState="None" type="Active" selected="true" showMarkers="false">
 						<attributes/>
 						<firstStatus/>
 						<secondStatus/>
 					</ObjectListItem>
 				</items>
 			</List>
-			<CheckBox text="Car" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
-			<Label text="Brand car" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
-			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
-				<items>
-					<core:Item text="Item" enabled="true" key="Item"/>
-				</items>
-			</ComboBox>
-			<Label text="Type car" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
-			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/CarSet}">
-				<items>
-					<core:Item text="{Type_brand}" enabled="true" key="{Type_brand}"/>
-				</items>
-			</ComboBox>
-			<Label text="Year of production" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
-			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/YearsSet}">
-				<items>
-					<core:Item text="{Years}" enabled="true" key="{Years}"/>
-				</items>
-			</ComboBox>
-			<Label text="Fuel source" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
-			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/FuelSet}">
-				<items>
-					<core:Item text="{Fuel}" enabled="true" key="{Fuel}"/>
-				</items>
-			</ComboBox>
-			<Label text="Quantity of carpool persons" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
-			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/PersonsSet}">
-				<items>
-					<core:Item text="{Quantity_persons}" enabled="true" key="{Quantity_persons}"/>
-				</items>
-			</ComboBox>
-			<CheckBox text="Bus" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
-			<CheckBox text="Bike" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
-			<CheckBox text="Train" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
-			<CheckBox text="Tram" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form0">
+			<sap.ui.layout.form:content>
+			    <CheckBox xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" text="Car" selected="{settings>/carActive}" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit" id="__box10"/>
+			    <Label xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" text="Brand car" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" id="__label9" visible="{settings>/carActive}"/>
+			    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" editable="true" enabled="true" visible="{settings>/carActive}" width="auto" valueState="None" maxWidth="100%" items="{/BrandSet}" id="__box11">
+			        <items>
+			            <core:Item xmlns:core="sap.ui.core" text="{Name}" enabled="true" key="Item" id="__item7"/>
+			        </items>
+			    </ComboBox>
+			    <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" text="Type car" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" id="__label10" visible="{settings>/carActive}"/>
+			    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" editable="true" enabled="true" visible="{settings>/carActive}" width="auto" valueState="None" maxWidth="100%" items="{/CarSet}" id="__box12">
+			        <items>
+			            <core:Item xmlns:core="sap.ui.core" text="{Type_brand}" enabled="true" key="{Type_brand}" id="__item8-__box12-0"/>
+			        </items>
+			    </ComboBox>
+			    <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" text="Year of production" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" id="__label11" visible="{settings>/carActive}"/>
+			    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" editable="true" enabled="true" visible="{settings>/carActive}" width="auto" valueState="None" maxWidth="100%" items="{/YearsSet}" id="__box13">
+			        <items>
+			            <core:Item xmlns:core="sap.ui.core" text="{Years}" enabled="true" key="{Years}" id="__item9-__box13-0"/>
+			        </items>
+			    </ComboBox>
+			    <Label xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" text="Fuel source" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" id="__label12" visible="{settings>/carActive}"/>
+			    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" editable="true" enabled="true" visible="{settings>/carActive}" width="auto" valueState="None" maxWidth="100%" items="{/FuelSet}" id="__box14">
+			        <items>
+			            <core:Item xmlns:core="sap.ui.core" text="{Fuel}" enabled="true" key="{Fuel}" id="__item10-__box14-0"/>
+			        </items>
+			    </ComboBox>
+			    <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" text="Quantity of carpool persons" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" id="__label13" visible="{settings>/carActive}"/>
+			    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" editable="true" enabled="true" visible="{settings>/carActive}" width="auto" valueState="None" maxWidth="100%" items="{/PersonsSet}" id="__box15">
+			        <items>
+			            <core:Item xmlns:core="sap.ui.core" text="{Quantity_persons}" enabled="true" key="{Quantity_persons}" id="__item11-__box15-0"/>
+			        </items>
+			    </ComboBox>
+			</sap.ui.layout.form:content>
+			</sap.ui.layout.form:SimpleForm>
+			<CheckBox text="Bus" selected="{settings>/busActive}" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<CheckBox text="Bike" selected="{settings>/bikeActive}" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<CheckBox text="Train" selected="{settings>/trainActive}" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<CheckBox text="Tram" selected="{settings>/tramActive}" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
 		</content>
 		<footer/>
 		<headerContent/>

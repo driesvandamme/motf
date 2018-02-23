@@ -19,6 +19,19 @@ sap.ui.define([
 					});
 				oModel.setDefaultBindingMode("OneWay");
 				return oModel;
+			},
+
+			createSettingsModel : function () {
+				var oModel = new JSONModel();
+					oModel.setData({
+						"carActive" : false,
+						"busActive" : false,
+						"bikeActive" : true,
+						"trainActive" : false,
+						"tramActive" : false
+					});
+				oModel.setDefaultBindingMode("TwoWay");
+				return oModel;
 			}
 		};
 
