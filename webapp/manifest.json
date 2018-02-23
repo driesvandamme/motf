@@ -157,62 +157,62 @@
 				}
 			},
 			"routes": [
-				{
-					"pattern": "Overview/:context:",
-					"name": "Overview",
-					"target": [
-						"Overview"
-					]
-				},
-				{
-					"pattern": "",
-					"name": "default",
-					"target": [
-						"Overview"
-					]
-				},
-				{
-					"pattern": "Settings/:context:",
-					"name": "Settings",
-					"target": [
-						"Settings"
-					]
-				},
-				{
-					"pattern": "Carpooling/:context:",
-					"name": "Carpooling",
-					"target": [
-						"Carpooling"
-					]
-				},
-				{
-					"pattern": "CoeffCompany/:context:",
-					"name": "CoeffCompany",
-					"target": [
-						"CoeffCompany"
-					]
-				},
-				{
-					"pattern": "RewardsPage/:context:",
-					"name": "RewardsPage",
-					"target": [
-						"RewardsPage"
-					]
-				},
-				{
-					"pattern": "Planning/:context:",
-					"name": "Planning",
-					"target": [
-						"Planning"
-					]
-				},
-				{
-					"pattern": "CarpoolSubmit/:context:",
-					"name": "CarpoolSubmit",
-					"target": [
-						"CarpoolSubmit"
-					]
-				}
+			{
+				"pattern": "Overview/:context:",
+				"name": "Overview",
+				"target": [
+					"Overview"
+				]
+			},
+			{
+				"pattern": "",
+				"name": "default",
+				"target": [
+					"Overview"
+				]
+			},
+			{
+				"pattern": "Settings/:context:",
+				"name": "Settings",
+				"target": [
+					"Settings"
+				]
+			},
+			{
+				"pattern": "Carpooling/:context:",
+				"name": "Carpooling",
+				"target": [
+					"Carpooling"
+				]
+			},
+			{
+				"pattern": "CoeffCompany/:context:",
+				"name": "CoeffCompany",
+				"target": [
+					"CoeffCompany"
+				]
+			},
+			{
+				"pattern": "RewardsPage/:context:",
+				"name": "RewardsPage",
+				"target": [
+					"RewardsPage"
+				]
+			},
+			{
+				"pattern": "Planning/:context:",
+				"name": "Planning",
+				"target": [
+					"Planning"
+				]
+			},
+			{
+				"pattern": "CarpoolSubmit/:context:",
+				"name": "CarpoolSubmit",
+				"target": [
+					"CarpoolSubmit"
+				]
+			}
 			]
 		}
 	}

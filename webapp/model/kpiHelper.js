@@ -138,53 +138,75 @@ sap.ui.define([
 		};
 	}
 
-    return {
-        /**
-         * Request a JSONModel that will contained the calculated data for the KPI
-         * @param {string} sName the chart identifier
-         * @param {Object} oChart the chart control
-         * @param {Object} oModel the ODataModel to query
-         * @param {string} sEntityName the entity name on which this all applies
-         * @param {Object[]} aDimensions an array containing the dimensions from the chart
-         * @param {Object} mMeasureCalculation a map containing information about the measure calculation
-         * @param {Object} fnSortAndFilter a function to retrieve the sort and filters to apply
-         * @param {Function} fnCallback function to call with the created JSONModel
-         */
-        getKPIModel: function (sName, oChart, oModel, sEntityName, aDimensions, mMeasureCalculation, fnSortAndFilter, fnCallback) {
-            var aDimensionNames = aDimensions.map(function (oDimension) {
-                return oDimension.getName();
-            });
-            var aMeasureNames = [];
-            for (var sCalculatedMeasureName in mMeasureCalculation) {
-                if (aMeasureNames.indexOf(mMeasureCalculation[sCalculatedMeasureName].source) === -1) {
-                    aMeasureNames.push(mMeasureCalculation[sCalculatedMeasureName].source);
-                }
-            }
-            var aSelectParameter = aDimensionNames.concat(aMeasureNames);
-            oChart.bindElement({
-                path: sEntityName,
-                events: {
-                    change: performRead.bind(this),
+	return {
+		/**
+		 * Request a JSONModel that will contained the calculated data for the KPI
+		 * @param {string} sName the chart identifier
+		 * @param {Object} oChart the chart control
+		 * @param {Object} oModel the ODataModel to query
+		 * @param {string} sEntityName the entity name on which this all applies
+		 * @param {Object[]} aDimensions an array containing the dimensions from the chart
+		 * @param {Object} mMeasureCalculation a map containing information about the measure calculation
+		 * @param {Object} fnSortAndFilter a function to retrieve the sort and filters to apply
+		 * @param {Function} fnCallback function to call with the created JSONModel
+		 */
+		getKPIModel: function(sName, oChart, oModel, sEntityName, aDimensions, mMeasureCalculation, fnSortAndFilter, fnCallback) {
+			var aDimensionNames = aDimensions.map(function(oDimension) {
+				return oDimension.getName();
+			});
+			var aMeasureNames = [];
+			for (var sCalculatedMeasureName in mMeasureCalculation) {
+				if (aMeasureNames.indexOf(mMeasureCalculation[sCalculatedMeasureName].source) === -1) {
+					aMeasureNames.push(mMeasureCalculation[sCalculatedMeasureName].source);
+				}
+			}
+			var aSelectParameter = aDimensionNames.concat(aMeasureNames);
+			oChart.bindElement({
+				path: sEntityName,
+				events: {
+					change: performRead.bind(this),
+
 					dataReceived: performRead.bind(this)
-                }
-            });
-            
-            function performRead(event) {
-                var oSortAndFilters = fnSortAndFilter(sName) || {};
-                var mQueryParams = {
-                    context: event.getSource().getContext(),
-                    urlParameters: {
-                        $select: aSelectParameter
-                    },
-                    sorters: oSortAndFilters.sorters,
-                    filters: oSortAndFilters.filters,
-                    success: processReadRequest(aDimensionNames, aMeasureNames, mMeasureCalculation, fnCallback),
-                    error: function (oError) {
-                        throw new Error("Error while loading the data in order to create the KPI Model", oError);
-                    }
-                };
-                oModel.read(sEntityName, mQueryParams);
-            }
-        }
-    };
+				}
+			});
+
+			function performRead(event) {
+				var oSortAndFilters = fnSortAndFilter(sName) || {};
+				var mQueryParams = {
+					context: event.getSource().getContext(),
+					urlParameters: {
+						$select: aSelectParameter
+					},
+					sorters: oSortAndFilters.sorters,
+					filters: oSortAndFilters.filters,
+					success: processReadRequest(aDimensionNames, aMeasureNames, mMeasureCalculation, fnCallback),
+					error: function(oError) {
+						throw new Error("Error while loading the data in order to create the KPI Model", oError);
+					}
+				};
+				oModel.read(sEntityName, mQueryParams);
+			}
+		}
+	};
 }, true);
+
+
+function performRead(event) {
+	var oSortAndFilters = fnSortAndFilter(sName) || {};
+	var mQueryParams = {
+		context: event.getSource().getContext(),
+		urlParameters: {
+			$select: aSelectParameter
+		},
+		sorters: oSortAndFilters.sorters,
+		filters: oSortAndFilters.filters,
+		success: processReadRequest(aDimensionNames, aMeasureNames, mMeasureCalculation, fnCallback),
+		error: function(oError) {
+			throw new Error("Error while loading the data in order to create the KPI Model", oError);
+		}
+	};
+	oModel.read(sEntityName, mQueryParams);
+}
+}
+};
+}, true); >>> >>> > 94 af4fa Added tile,
