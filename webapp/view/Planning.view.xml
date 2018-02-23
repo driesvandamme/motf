@@ -1,67 +1,43 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Planning" xmlns="sap.m"
 	xmlns:commons="sap.suite.ui.commons" xmlns:core="sap.ui.core">
 	<Page showHeader="true" title="Planning" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-		<content>
-			<commons:Timeline alignment="Left" enableDoubleSided="true" axisOrientation="Vertical" width="100%" height="100%" enableBusyIndicator="true"
-				enableScroll="false" forceGrowing="false" groupBy="" growingThreshold="5" showHeaderBar="false" showIcons="true" showSearch="false"
-				sort="false" sortOldestFirst="false" content="{/DatumSet}">
-				<commons:content>
-					<commons:TimelineItem dateTime="{path: 'Date', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" text="Test"
-						userName="Achieved score" title="5" icon="sap-icon://notes"
-						filterValue="{path: 'Date', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" userNameClickable="false"
-						replyCount="0" maxCharacters="0">
-						<commons:embeddedControl>
-							<ComboBox selectedKey="{Transport}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%"
-								items="{/DatumSet}">
-								<items>
-									<core:Item text="{Transport}" enabled="true" key="{Transport}"/>
-								</items>
-							</ComboBox>
-						</commons:embeddedControl>
-					</commons:TimelineItem>
-					<commons:TimelineItem dateTime="01/01/2001" text="Text" userName="User Name"
-						userPicture="/build/uilibraries/content/static/image-canvas.svg" title="Title" icon="sap-icon://notes" filterValue="Filter Value"
-						userNameClickable="true" replyCount="0" maxCharacters="0">
-						<commons:embeddedControl>
-							<ComboBox selectedKey="{Transport}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%"
-								items="{/DatumSet}">
-								<items>
-									<core:Item text="{Transport}" enabled="true" key="{Transport}"/>
-								</items>
-							</ComboBox>
-						</commons:embeddedControl>
-					</commons:TimelineItem>
-					<commons:TimelineItem dateTime="01/01/2001" text="Text" userName="User Name"
-						userPicture="/build/uilibraries/content/static/image-canvas.svg" title="Title" icon="sap-icon://notes" filterValue="Filter Value"
-						userNameClickable="true" replyCount="0" maxCharacters="0">
-						<commons:embeddedControl>
-							<ComboBox selectedKey="{Transport}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%"
-								items="{/DatumSet}">
-								<items>
-									<core:Item text="{Transport}" enabled="true" key="{Transport}"/>
-								</items>
-							</ComboBox>
-						</commons:embeddedControl>
-					</commons:TimelineItem>
-					<commons:TimelineItem dateTime="01/01/2001" text="Text" userName="User Name"
-						userPicture="/build/uilibraries/content/static/image-canvas.svg" title="Title" icon="sap-icon://notes" filterValue="Filter Value"
-						userNameClickable="true" replyCount="0" maxCharacters="0">
-						<commons:embeddedControl>
-							<ComboBox selectedKey="{Transport}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%"
-								items="{/DatumSet}">
-								<items>
-									<core:Item text="{Transport}" enabled="true" key="{Transport}"/>
-								</items>
-							</ComboBox>
-						</commons:embeddedControl>
-					</commons:TimelineItem>
-				</commons:content>
-				<commons:filterList/>
-			</commons:Timeline>
-		</content>
-		<footer/>
-		<headerContent/>
-		<subHeader/>
-		<customHeader/>
-	</Page>
+        <content>
+            <commons:Timeline alignment="Left" enableDoubleSided="true" axisOrientation="Vertical" width="100%" height="100%" enableBusyIndicator="true" enableScroll="false" forceGrowing="false" groupBy="" growingThreshold="5" showHeaderBar="false" showIcons="true" showSearch="true" sort="true" sortOldestFirst="false" content="{/DatumSet}">
+                <commons:content>
+                    <commons:TimelineItem dateTime="" text="" userName="" userPicture="" title="" icon="sap-icon://notes" filterValue="Filter Value" userNameClickable="false" replyCount="0" maxCharacters="0">
+                        <commons:embeddedControl>
+                            <VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false" templateShareable="false">
+                                <items>
+                                    <Text text="{path: 'Date', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Text text="Transportation method" width="215.00000000px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/TransportationMethodSet}" templateShareable="false">
+                                        <items>
+                                            <core:Item text="{Name}" enabled="true" key="{Name}"/>
+                                        </items>
+                                    </ComboBox>
+                                    <HBox alignItems="Stretch" direction="Row" fitContainer="true" width="90.00000000px" justifyContent="Start" renderType="Div" visible="true" displayInline="false" templateShareable="false">
+                                        <items>
+                                            <Text text="# passengers" width="170.00000000px" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                            <ComboBox editable="true" enabled="true" visible="true" width="75px" valueState="None" maxWidth="100%" items="{/PersonsSet}" templateShareable="false">
+                                                <items>
+                                                    <core:Item text="{Quantity_persons}" enabled="true" key="{Quantity_persons}"/>
+                                                </items>
+                                            </ComboBox>
+                                        </items>
+                                        <layoutData/>
+                                    </HBox>
+                                </items>
+                                <layoutData/>
+                            </VBox>
+                        </commons:embeddedControl>
+                    </commons:TimelineItem>
+                </commons:content>
+                <commons:filterList/>
+            </commons:Timeline>
+        </content>
+        <footer/>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
 </mvc:View>

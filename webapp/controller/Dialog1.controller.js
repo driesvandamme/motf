@@ -5,25 +5,31 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 ], function(BaseController, MessageBox, Utilities, History) {
 	"use strict";
 
-	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Planning", {
-		handleRouteMatched: function(oEvent) {
-			var oParams = {};
-			if (oEvent.mParameters.data.context) {
-				this.sContext = oEvent.mParameters.data.context;
-				var oPath;
-				if (this.sContext) {
-					oPath = {
-						path: "/" + this.sContext,
-						parameters: oParams
-					};
-					this.getView().bindObject(oPath);
-				}
-			}
+	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Dialog1", {
+		setRouter: function(oRouter) {
+			this.oRouter = oRouter;
+
 		},
-		_onPageNavButtonPress: function(oEvent) {
-			var oBindingContext = oEvent.getSource().getBindingContext();
+		getBindingParameters: function() {
+			return {};
+
+		},
+		_onButtonPress: function() {
+			var oDialog = this.getView().getContent()[0];
+
 			return new Promise(function(fnResolve) {
-				this.doNavigate("Page1", oBindingContext, fnResolve, "");
+				oDialog.attachEventOnce("afterClose", null, fnResolve);
+				oDialog.close();
+			});
+
+		},
+		_onButtonPress1: function(oEvent) {
+
+			var oBindingContext = oEvent.getSource().getBindingContext();
+
+			return new Promise(function(fnResolve) {
+
+				this.doNavigate("Carpooling", oBindingContext, fnResolve, "");
 			}.bind(this)).catch(function(err) {
 				if (err !== undefined) {
 					MessageBox.error(err.message);
@@ -32,6 +38,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
+
 			var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
 			var oModel = (oBindingContext) ? oBindingContext.getModel() : null;
 
@@ -85,8 +92,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			}
 		},
 		onInit: function() {
-			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("Planning").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+			this._oDialog = this.getView().getContent()[0];
+
+		},
+		onExit: function() {
+			this._oDialog.destroy();
 
 		}
 	});

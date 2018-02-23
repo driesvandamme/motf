@@ -42,33 +42,25 @@
 			data-sap-ui-compatVersion="edge" 
 			data-sap-ui-resourceroots='{"com.sap.build.standard.hackathon2018":"../","sap.iot.dor":"/build/uilibraries/BRIDGE-CUSTOM-1.0.0/sap/iot/dor"}'>
 		</script>
-
-     
-
+		
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUV5uTWtLmMOmLQDnEDMqGDcATjqiGf8U&sensor=false" type="text/javascript"></script>
+        
 		<script type="text/javascript">
         		sap.ui.getCore().attachInit(function() {
         	        //Fake LREP
         	        jQuery.sap.require("sap.ui.fl.FakeLrepConnector");
         	        sap.ui.fl.FakeLrepConnector.enableFakeConnector("fakeLRep.json");
-
         	        
-        				
         				sap.ui.require([
         					"com/sap/build/standard/hackathon2018/localService/mockserver"
         				], function (server) {
         					// set up test service for local testing
         					server.init();
-        					
-        						// initialize the ushell sandbox component
-        						sap.ushell.Container.createRenderer().placeAt("app");
-        					
+    						// initialize the ushell sandbox component
+    						sap.ushell.Container.createRenderer().placeAt("app");
                         });
-            		
                 });
         	</script>
 	</head>
-
-	<body class="sapUiBody" id="app" rootUiArea >
-	</body>
-
+	<body class="sapUiBody" id="app" rootUiArea></body>
 </html>

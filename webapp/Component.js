@@ -21,14 +21,18 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function() {
+			
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 			// set the FLP model
 			this.setModel(models.createFLPModel(), "FLP");
 
 			// set the dataSource model
-			this.setModel(new sap.ui.model.json.JSONModel({}), "dataSource");
-
+			debugger;
+			this.setModel(new sap.ui.model.json.JSONModel({
+				"uri": "/here/goes/your/serviceUrl/local/"
+			}), "dataSource");
+			
 			// set application model
 			var oApplicationModel = new sap.ui.model.json.JSONModel({});
 			this.setModel(oApplicationModel, "applicationModel");

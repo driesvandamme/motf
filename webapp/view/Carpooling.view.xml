@@ -1,5 +1,54 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Carpooling" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Carpooling" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page showHeader="true" title="Carpooling" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+		<content>
+            <layout1:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout1:positions>
+                    <layout1:PositionContainer left="5px" top="38px">
+                        <layout1:control>
+                            <layout:VerticalLayout width="100%" visible="true">
+                                <layout:content>
+                                    <ObjectListItem intro="Option 1" title="Kurt Ranft" icon="sap-icon://car-rental" number="1:12" numberUnit="Hours" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress">
+                                        <attributes/>
+                                        <firstStatus/>
+                                        <secondStatus/>
+                                    </ObjectListItem>
+                                    <ObjectListItem intro="Option 2" title="Pascal Decock" icon="sap-icon://car-rental" number="1:21" numberUnit="Hours" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress1">
+                                        <attributes/>
+                                        <firstStatus/>
+                                        <secondStatus/>
+                                    </ObjectListItem>
+                                    <ObjectListItem intro="Option 3" title="Dries Damme" icon="sap-icon://car-rental" number="1:26" numberUnit="Hours" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress2">
+                                        <attributes/>
+                                        <firstStatus/>
+                                        <secondStatus/>
+                                    </ObjectListItem>
+                                    <ObjectListItem intro="" title="No more results" number="" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress3">
+                                        <attributes/>
+                                        <firstStatus/>
+                                        <secondStatus/>
+                                    </ObjectListItem>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                    <layout1:PositionContainer left="0px" top="0px">
+                        <layout1:control>
+                            <Toolbar width="320px" height="47px" design="Transparent" visible="true" enabled="true">
+                                <content>
+                                    <Title text="Items (3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                                    <ToolbarSpacer width=""/>
+                                    <Button text="" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                    <Button text="" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                    <Button text="" type="Transparent" icon="sap-icon://group-2" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                    <Button text="" type="Transparent" icon="sap-icon://action-settings" iconFirst="true" width="48px" enabled="true" visible="true" iconDensityAware="false"/>
+                                </content>
+                                <tooltip/>
+                            </Toolbar>
+                        </layout1:control>
+                    </layout1:PositionContainer>
+                </layout1:positions>
+            </layout1:AbsoluteLayout>
 		<HBox id="map_canvas" fitContainer="true" justifyContent="Center" alignItems="Center" />
-	</Page>
+		</content>
+		</Page>
 </mvc:View>
