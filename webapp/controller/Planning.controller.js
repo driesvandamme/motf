@@ -1,11 +1,13 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function(BaseController, MessageBox, Utilities, History) {
+	"sap/ui/core/routing/History",
+	"../util/formatter"
+], function(BaseController, MessageBox, Utilities, History, Formatter) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Planning", {
+		formatter: Formatter,
 		handleRouteMatched: function(oEvent) {
 			var oParams = {};
 			if (oEvent.mParameters.data.context) {
