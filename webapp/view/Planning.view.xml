@@ -21,10 +21,9 @@
                                                 
                                                 <sap.ui.layout.form:content>
                                                     <Text xmlns:mvc="sap.ui.core.mvc" xmlns:commons="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns="sap.m" text="How many passengers?" maxLines="1" id="__label3"/>
-                                                    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns:commons="sap.suite.ui.commons" xmlns="sap.m" editable="true" enabled="true" visible="true" width="75px" valueState="None" items="{/PersonsSet}" templateShareable="false" id="__box2">
+                                                    <ComboBox xmlns:mvc="sap.ui.core.mvc" xmlns:commons="sap.suite.ui.commons" xmlns="sap.m" editable="true" enabled="true" visible="true" width="75px" valueState="None" items="{/PersonsSet}" selectedKey="{Passengers}" templateShareable="false" id="__box2">
                                                         <items>
-                                                            <core:Item xmlns:core="sap.ui.core" text="{Quantity_persons}" enabled="true" key="{Quantity_persons}" id="__item7-__box2-0"/>
-                                                            
+                                                            <core:Item xmlns:core="sap.ui.core" text="{Quantity_persons}" enabled="true" key="{ID}" id="__item7-__box2-0"/>
                                                         </items>
                                                         
                                                     </ComboBox>

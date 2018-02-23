@@ -71,6 +71,7 @@
                     <PropertyRef Name="ID"/>
                 </Key>
                 <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Passengers" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
                 <Property Name="Date" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="Date"/>
                 <Property Name="Transport" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Transport Method"/>
             </EntityType>
