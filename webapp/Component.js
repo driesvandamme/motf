@@ -6,7 +6,7 @@ sap.ui.define([
 	"use strict";
 
 	var navigationWithContext = {
- 
+    
 	};
 
 	return UIComponent.extend("com.sap.build.standard.hackathon2018.Component", {
