@@ -149,7 +149,80 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				});
 
 			},
-			onSelectHomeWork: function() {
+			onChangeDirection: function(oEvent) {
+
+				var idx = oEvent.getParameter("selectedIndex");
+				var homeAddress = "Nieuwstraat+101+Brussel";
+				var workAddress = "Dendermondsesteenweg+39+Gent";
+
+				switch (idx) {
+					case 0: //To work
+						var trainUrl =
+							"https://maps.googleapis.com/maps/api/directions/json?origin=" + homeAddress + "&destination=" + workAddress +
+							"&mode=transit&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+						var carUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + homeAddress + "&destination=" + workAddress +
+							"&mode=driving&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+						break;
+					case 1: //To home
+						var trainUrl =
+							"https://maps.googleapis.com/maps/api/directions/json?origin=" + workAddress + "&destination=" + homeAddress +
+							"&mode=transit&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+						var carUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + workAddress + "&destination=" + homeAddress +
+							"&mode=driving&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+						break;
+					default:
+				}
+
+				//Get train data
+				var transitTime;
+				var transitDistance;
+				var departureTime;
+				var arrivalTime;
+				var that = this;
+				var url;
+
+				$.ajax({
+					url: trainUrl,
+					type: "GET",
+					dataType: "text",
+					contentType: "application/json;",
+					success: function(data) {
+						var transitData = JSON.parse(data);
+						transitTime = transitData.routes[0].legs[0].duration.text;
+						transitDistance = transitData.routes[0].legs[0].distance.text;
+						departureTime = transitData.routes[0].legs[0].departure_time.text;
+						arrivalTime = transitData.routes[0].legs[0].arrival_time.text;
+						that.getView().byId("idTrainTileContent").setProperty("footer", departureTime + "-" + arrivalTime);
+						that.getView().byId("idTrainTile").setProperty("subheader", transitTime + " for " + transitDistance + " kilometers");
+
+					},
+					error: function(xhr, status) {
+						console.log("ERROR");
+					}
+				});
+
+				//Get car data
+				var carTime;
+				var carDistance;
+				var thatCar = this;
+
+				$.ajax({
+					url: carUrl,
+					type: "GET",
+					dataType: "text",
+					contentType: "application/json;",
+					success: function(data) {
+						var transitData = JSON.parse(data);
+						carTime = transitData.routes[0].legs[0].duration.text;
+						carDistance = transitData.routes[0].legs[0].distance.text;
+
+						//that.getView().byId("idCarTileContent").setProperty("footer", departureTime + "-" + arrivalTime);
+						that.getView().byId("idCarTile").setProperty("subheader", carTime + " for " + carDistance + " kilometers");
+					},
+					error: function(xhr, status) {
+						console.log("ERROR");
+					}
+				});
 
 			},
 			onInit: function() {
@@ -178,7 +251,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					type: "GET",
 					dataType: "text",
 					contentType: "application/json;",
-					success: function(data, textStatus) {
+					success: function(data) {
 						var transitData = JSON.parse(data);
 						transitTime = transitData.routes[0].legs[0].duration.text;
 						transitDistance = transitData.routes[0].legs[0].distance.text;
@@ -203,7 +276,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					type: "GET",
 					dataType: "text",
 					contentType: "application/json;",
-					success: function(data, textStatus) {
+					success: function(data) {
 						var transitData = JSON.parse(data);
 						carTime = transitData.routes[0].legs[0].duration.text;
 						carDistance = transitData.routes[0].legs[0].distance.text;

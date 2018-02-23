@@ -2,13 +2,12 @@
 	<Page showHeader="true" title="Overview" showFooter="false" showNavButton="false" xmlns:l="sap.ui.layout">
 		<content>
 			<Toolbar>
-				<SegmentedButton selectionChange="onSelectHomeWork" id="idDirectionChoice" class="sapUiTinyMarginBegin sapUiTinyMarginTop" width="auto"
-					enabled="true" visible="true">
-					<items>
-						<SegmentedButtonItem icon="sap-icon://building" text="To Work" width="auto" enabled="true"/>
-						<SegmentedButtonItem icon="sap-icon://home" text="To Home" width="auto" enabled="true"/>
-					</items>
-				</SegmentedButton>
+				<RadioButtonGroup select="onChangeDirection" columns="2">
+					<buttons>
+						<RadioButton id="idWork" text="To Work"/>
+						<RadioButton id="idHome" text="To Home"/>
+					</buttons>
+				</RadioButtonGroup>
 			</Toolbar>
 			<GenericTile id="idTrainTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by train">
 				<TileContent id="idTrainTileContent" unit="Points">
