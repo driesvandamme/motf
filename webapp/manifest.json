@@ -118,6 +118,13 @@
 					"viewId": "Planning",
 					"viewLevel": 2,
 					"transition": "slide"
+				},
+				"CarpoolSubmit": {
+					"controlAggregation": "pages",
+					"viewName": "CarpoolSubmit",
+					"viewId": "CarpoolSubmit",
+					"viewLevel": 3,
+					"transition": "slide"
 				}
 			},
 			"routes": [
@@ -168,6 +175,13 @@
 					"name": "Planning",
 					"target": [
 						"Planning"
+					]
+				},
+				{
+					"pattern": "CarpoolSubmit/:context:",
+					"name": "CarpoolSubmit",
+					"target": [
+						"CarpoolSubmit"
 					]
 				}
 			]

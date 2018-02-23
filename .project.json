@@ -17,6 +17,12 @@
         }, 
         "/webapp/view/Planning.view.xml": {
             "entitySet": ""
+        },
+           "/webapp/view/Dialog1.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CarpoolSubmit.view.xml": {
+            "entitySet": ""
         } 
     }
 }
