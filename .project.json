@@ -1,29 +1,35 @@
 {
-  "dataBinding": {
-    "/webapp/view/Overview.view.xml": {
-      "entitySet": ""
-    },
-    "/webapp/view/Settings.view.xml": {
-      "entitySet": ""
-    },
-    "/webapp/view/Carpooling.view.xml": {
-      "entitySet": ""
-    },
-    "/webapp/view/CoeffCompany.view.xml": {
-      "entitySet": ""
-    },
-    "/webapp/view/RewardsPage.view.xml": {
-      "entitySet": ""
-    },
-    "/webapp/view/Planning.view.xml": {
-      "entitySet": ""
-    }
-  },
-  "mockpreview": {
-    "mockUri": "",
-    "metadataFilePath": "",
-    "mockRequestsFilePath": "",
-    "loadJSONFiles": true,
-    "loadCustomRequests": false
-  }
+	"dataBinding": {
+		"/webapp/view/Overview.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/Settings.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/Carpooling.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/CoeffCompany.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/RewardsPage.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/Planning.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/Dialog1.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/CarpoolSubmit.view.xml": {
+			"entitySet": ""
+		}
+	},
+	"mockpreview": {
+		"mockUri": "",
+		"metadataFilePath": "",
+		"mockRequestsFilePath": "",
+		"loadJSONFiles": true,
+		"loadCustomRequests": false
+	}
 }
