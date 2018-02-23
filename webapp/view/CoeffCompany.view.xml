@@ -1,17 +1,54 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.CoeffCompany" xmlns="sap.m">
-    <Page showHeader="true" title="Company Ranking" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-        <content/>
-        <footer>
-            <Bar design="Auto">
-                <contentLeft/>
-                <contentMiddle/>
-                <contentRight>
-                    <Button text="Approve" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="Reject" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="" type="Default" icon="sap-icon://action" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                </contentRight>
-            </Bar>
-        </footer>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.CoeffCompany" xmlns="sap.m" xmlns:chart="sap.chart" xmlns:data="sap.chart.data">
+    <Page showHeader="true" title="Overview SAP" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+        <content>
+            <ObjectHeader intro="" title="Coëfficient per employee" icon="sap-icon://e-care" number="8,2" numberUnit="" numberState="None" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+                <attributes/>
+                <statuses/>
+            </ObjectHeader>
+            <RatingIndicator value="4" maxValue="5" visualMode="Half" enabled="true" visible="true"/>
+            <ProgressIndicator width="100%" percentValue="82" showValue="true" displayValue="82 %" state="Success" enabled="true" visible="true"/>
+            <ObjectListItem intro="Leaderboard companies" title="SAP" number="18595" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                <attributes>
+                    <ObjectAttribute text="Microsoft" active="false"/>
+                    <ObjectAttribute text="Delhaize" active="false"/>
+                </attributes>
+                <firstStatus>
+                    <ObjectStatus text="17006" state="None"/>
+                </firstStatus>
+                <secondStatus>
+                    <ObjectStatus text="12000" state="None"/>
+                </secondStatus>
+            </ObjectListItem>
+            <ObjectListItem intro="Leaderboard employees" title="Leonardo Belize" number="300" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                <attributes>
+                    <ObjectAttribute text="Michel Jansens" active="false"/>
+                    <ObjectAttribute text="Tom Boonen" active="false"/>
+                </attributes>
+                <firstStatus>
+                    <ObjectStatus text="250" state="None"/>
+                </firstStatus>
+                <secondStatus>
+                    <ObjectStatus text="215" state="None"/>
+                </secondStatus>
+            </ObjectListItem>
+            <chart:Chart id="sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290" width="320px" height="135px" visibleDimensions="Transport" visibleMeasures="MES_Transport_COUNT" chartType="pie" isAnalytical="false" selectionMode="Single" uiConfig="{}" vizProperties="{plotArea:{dataLabel:{visible: true,hideWhenOverlap:true}}}">
+                <chart:dimensions>
+                    <data:Dimension name="Transport" label="Transportation methods" role="category"/>
+                </chart:dimensions>
+                <chart:measures>
+                    <data:Measure name="MES_Transport_COUNT" label="Uses of transport" role="axis2"/>
+                </chart:measures>
+            </chart:Chart>
+            <chart:Chart id="sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730" width="320px" height="115px" visibleDimensions="__metadata/uri" visibleMeasures="Average" chartType="line" isAnalytical="false" selectionMode="Single" uiConfig="{}" vizProperties="{plotArea:{dataLabel:{visible: true,hideWhenOverlap:true}}}">
+                <chart:dimensions>
+                    <data:Dimension name="__metadata/uri" label="Months" role="category" textProperty="Month"/>
+                </chart:dimensions>
+                <chart:measures>
+                    <data:Measure name="Average" label="Points" role="axis2"/>
+                </chart:measures>
+            </chart:Chart>
+        </content>
+        <footer/>
         <headerContent/>
         <subHeader/>
         <customHeader/>

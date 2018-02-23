@@ -1,19 +1,39 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.RewardsPage" xmlns="sap.m">
-    <Page showHeader="true" title="Rewards" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-        <content/>
-        <footer>
-            <Bar design="Auto">
-                <contentLeft/>
-                <contentMiddle/>
-                <contentRight>
-                    <Button text="Approve" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="Reject" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="" type="Default" icon="sap-icon://action" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                </contentRight>
-            </Bar>
-        </footer>
-        <headerContent/>
-        <subHeader/>
-        <customHeader/>
-    </Page>
+	<Page showHeader="true" title="Rewards" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+		<content>
+			<ObjectHeader intro="" title="Total points" icon="sap-icon://horizontal-bar-chart" number="300" numberUnit="" numberState="None"
+				showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+				<attributes/>
+				<statuses/>
+			</ObjectHeader>
+			<Label text="Next reward" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ProgressIndicator width="100%" percentValue="75" showValue="true" displayValue="75 %" state="Warning" enabled="true" visible="true"/>
+			<ObjectHeader intro="" title="Current rewards" icon="sap-icon://competitor" number="" numberUnit="" numberState="None" showMarkers="false"
+				markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+				<attributes/>
+				<statuses/>
+			</ObjectHeader>
+			<RadioButtonGroup id="sap_Responsive_Page_0-content-sap_m_RadioButtonGroup-1519389090888" columns="1" selectedIndex="0" valueState="None"
+				width="290px" editable="true" enabled="true" textDirection="Inherit" select="_onRadioButtonGroupSelect">
+				<buttons>
+					<RadioButton text="1 free company lunch" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+					<RadioButton text="support Greenpeace (€10)" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+					<RadioButton text="Plant a tree" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+				</buttons>
+			</RadioButtonGroup>
+			<Button text="Claim reward" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+			<ProgressIndicator width="100%" percentValue="100" showValue="true" displayValue="100 %" state="Success" enabled="true" visible="true"/>
+			<ObjectHeader intro="" title="Claimed rewards" icon="sap-icon://competitor" number="" numberUnit="" numberState="None" showMarkers="false"
+				markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+				<attributes/>
+				<statuses/>
+			</ObjectHeader>
+			<Label text="1 free cinema ticket for Kinepolis" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ProgressIndicator width="100%" percentValue="100" showValue="true" displayValue="100 %" state="None" enabled="true" visible="true"/>
+		</content>
+		<footer/>
+		<headerContent/>
+		<subHeader/>
+		<customHeader/>
+	</Page>
 </mvc:View>
