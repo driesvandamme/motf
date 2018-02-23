@@ -1,37 +1,74 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.CoeffCompany" xmlns="sap.m" xmlns:chart="sap.chart" xmlns:data="sap.chart.data">
-    <Page showHeader="true" title="Overview SAP" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-        <content>
-            <ObjectHeader intro="" title="Coëfficient per employee" icon="sap-icon://e-care" number="8,2" numberUnit="" numberState="None" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
-                <attributes/>
-                <statuses/>
-            </ObjectHeader>
-            <RatingIndicator value="4" maxValue="5" visualMode="Half" enabled="true" visible="true"/>
-            <ProgressIndicator width="100%" percentValue="82" showValue="true" displayValue="82 %" state="Success" enabled="true" visible="true"/>
-            <ObjectListItem intro="Leaderboard companies" title="SAP" number="18595" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
-                <attributes>
-                    <ObjectAttribute text="Microsoft" active="false"/>
-                    <ObjectAttribute text="Delhaize" active="false"/>
-                </attributes>
-                <firstStatus>
-                    <ObjectStatus text="17006" state="None"/>
-                </firstStatus>
-                <secondStatus>
-                    <ObjectStatus text="12000" state="None"/>
-                </secondStatus>
-            </ObjectListItem>
-            <ObjectListItem intro="Leaderboard employees" title="Leonardo Belize" number="300" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
-                <attributes>
-                    <ObjectAttribute text="Michel Jansens" active="false"/>
-                    <ObjectAttribute text="Tom Boonen" active="false"/>
-                </attributes>
-                <firstStatus>
-                    <ObjectStatus text="250" state="None"/>
-                </firstStatus>
-                <secondStatus>
-                    <ObjectStatus text="215" state="None"/>
-                </secondStatus>
-            </ObjectListItem>
-            <chart:Chart id="sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290" width="320px" height="135px" visibleDimensions="Transport" visibleMeasures="MES_Transport_COUNT" chartType="pie" isAnalytical="false" selectionMode="Single" uiConfig="{}" vizProperties="{plotArea:{dataLabel:{visible: true,hideWhenOverlap:true}}}">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.CoeffCompany"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz="sap.viz.ui5.controls" xmlns="sap.m"
+	xmlns:chart="sap.chart" xmlns:data="sap.chart.data">
+	<Page showHeader="true" title="Overview SAP" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+		<content>
+			<ObjectHeader intro="" title="Coëfficient per employee" icon="sap-icon://e-care" number="8,2" numberUnit="" numberState="None"
+				showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+				<attributes/>
+				<statuses/>
+			</ObjectHeader>
+			<RatingIndicator value="4" maxValue="5" visualMode="Half" enabled="true" visible="true"/>
+			<ProgressIndicator width="100%" percentValue="82" showValue="true" displayValue="82 %" state="Success" enabled="true" visible="true"/>
+			<ObjectListItem intro="Leaderboard companies" title="SAP" number="18595" numberUnit="" numberState="None" type="Active" selected="false"
+				showMarkers="false">
+				<attributes>
+					<ObjectAttribute text="Microsoft" active="false"/>
+					<ObjectAttribute text="Delhaize" active="false"/>
+				</attributes>
+				<firstStatus>
+					<ObjectStatus text="17006" state="None"/>
+				</firstStatus>
+				<secondStatus>
+					<ObjectStatus text="12000" state="None"/>
+				</secondStatus>
+			</ObjectListItem>
+			<ObjectListItem intro="Leaderboard employees" title="Leonardo Belize" number="300" numberUnit="" numberState="None" type="Active"
+				selected="false" showMarkers="false">
+				<attributes>
+					<ObjectAttribute text="Michel Jansens" active="false"/>
+					<ObjectAttribute text="Tom Boonen" active="false"/>
+				</attributes>
+				<firstStatus>
+					<ObjectStatus text="250" state="None"/>
+				</firstStatus>
+				<secondStatus>
+					<ObjectStatus text="215" state="None"/>
+				</secondStatus>
+			</ObjectListItem>
+			<viz:VizFrame id="idVizFramePie" height='50%' width="50%" vizType='pie'>
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="Transport" value="{Transport}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="Amount" value="{Amount}"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem uid="size" type="Measure" values="Amount"/>
+					<viz.feeds:FeedItem uid="color" type="Dimension" values="Transport"/>
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="oVizFrameLine" height='50%' width="50%" vizType='line'>
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="Month" value="{Month}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="Average" value="{Average}"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="Average"/>
+					<viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Month"/>
+				</viz:feeds>
+			</viz:VizFrame>
+			<!--<chart:Chart id="sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290" width="320px" height="135px" visibleDimensions="Transport" visibleMeasures="MES_Transport_COUNT" chartType="pie" isAnalytical="false" selectionMode="Single" uiConfig="{}" vizProperties="{plotArea:{dataLabel:{visible: true,hideWhenOverlap:true}}}">
                 <chart:dimensions>
                     <data:Dimension name="Transport" label="Transportation methods" role="category"/>
                 </chart:dimensions>
@@ -46,11 +83,11 @@
                 <chart:measures>
                     <data:Measure name="Average" label="Points" role="axis2"/>
                 </chart:measures>
-            </chart:Chart>
-        </content>
-        <footer/>
-        <headerContent/>
-        <subHeader/>
-        <customHeader/>
-    </Page>
+            </chart:Chart>-->
+		</content>
+		<footer/>
+		<headerContent/>
+		<subHeader/>
+		<customHeader/>
+	</Page>
 </mvc:View>

@@ -55,7 +55,7 @@
 				<tileContent>
 					<TileContent footer="" unit="Options">
 						<content>
-							<NumericContent value="4" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
+							<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
 						</content>
 					</TileContent>
 				</tileContent>
@@ -70,6 +70,15 @@
 					</TileContent>
 				</tileContent>
 			</GenericTile>
+			<List id="notificationList" class="sapContrast sapContrastPlus sapUiTinyMarginBegin sapUiTinyMarginTop">
+				<NotificationListItem title="Potential carpool options" description="Jason Wouters, Elise Van Veen are taking the same route as you. "
+					showCloseButton="true" unread="true" priority="High" close="onItemClose" press="onListItemPress" authorPicture="sap-icon://group">
+					<buttons>
+						<Button text="Accept" type="Accept" press="onAcceptPress"/>
+						<Button text="Reject" type="Reject" press="onRejectPress"/>
+					</buttons>
+				</NotificationListItem>
+			</List>
 		</content>
 		<headerContent>
 			<Button text="" type="Default" icon="sap-icon://user-settings" iconFirst="true" width="auto" enabled="true" visible="true"

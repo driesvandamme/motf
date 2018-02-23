@@ -2,8 +2,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
 	"sap/ui/core/routing/History",
-	"../model/kpiHelper"
-], function(BaseController, MessageBox, Utilities, History, KPIHelper) {
+	"sap/ui/model/json/JSONModel"
+], function(BaseController, MessageBox, Utilities, History, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.CoeffCompany", {
@@ -188,17 +188,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				"mea0": "350",
 				"__id": 4
 			}];
-			oView.getModel("staticDataModel").setData({
-				"sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290": oData
-			}, true);
-			this.oBindingParameters['sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290'] = {
-				"path": "/Taart_transport2Set",
-				"parameters": {}
-			};
-			var aDimensions = oView.byId("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290").getDimensions();
-			aDimensions.forEach(function(oDimension) {
-				oDimension.setTextFormatter(dateDimensionFormatter);
-			});
+			/*	oView.getModel("staticDataModel").setData({
+					"sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290": oData
+				}, true);
+				this.oBindingParameters['sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290'] = {
+					"path": "/Taart_transport2Set",
+					"parameters": {}
+				};
+				var aDimensions = oView.byId("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290").getDimensions();
+				aDimensions.forEach(function(oDimension) {
+					oDimension.setTextFormatter(dateDimensionFormatter);
+				});*/
 
 			var oData = [{
 				"dim0": "India",
@@ -221,55 +221,93 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				"mea0": "350",
 				"__id": 4
 			}];
-			oView.getModel("staticDataModel").setData({
-				"sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730": oData
-			}, true);
-			this.oBindingParameters['sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730'] = {
-				"path": "/Grafiek_punten2Set",
-				"parameters": {}
-			};
-			var aDimensions = oView.byId("sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730").getDimensions();
-			aDimensions.forEach(function(oDimension) {
-				oDimension.setTextFormatter(dateDimensionFormatter);
+			/*	oView.getModel("staticDataModel").setData({
+					"sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730": oData
+				}, true);
+				this.oBindingParameters['sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730'] = {
+					"path": "/Grafiek_punten2Set",
+					"parameters": {}
+				};
+				var aDimensions = oView.byId("sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730").getDimensions();
+				aDimensions.forEach(function(oDimension) {
+					oDimension.setTextFormatter(dateDimensionFormatter);
+				});*/
+
+			var oVizFramePie = this.getView().byId("idVizFramePie");
+			var oModel2 = new JSONModel();
+			oModel2.loadData("../localService/Taart_transport2Set.json");
+
+			oModel2.attachRequestCompleted(function(oEvent) {
+				oVizFramePie.setModel(oModel2);
+
+				oVizFramePie.setVizProperties({
+					title: {
+						text: "Amount of usage"
+					},
+					plotArea: {
+						dataLabel: {
+							visible: true
+						}
+					}
+				});
+			});
+
+			var oVizFrameLine = this.getView().byId("oVizFrameLine");
+			var oModel3 = new JSONModel();
+			oModel3.loadData("../localService/Grafiek_punten2Set.json");
+
+			oModel3.attachRequestCompleted(function(oEvent) {
+				oVizFrameLine.setModel(oModel3);
+
+				oVizFrameLine.setVizProperties({
+					title: {
+						text: "Average score per month"
+					},
+					plotArea: {
+						dataLabel: {
+							visible: true
+						}
+					}
+				});
 			});
 
 		},
 		onAfterRendering: function() {
 
-			var oChart,
-				self = this,
-				oBindingParameters = this.oBindingParameters,
-				oView = this.getView();
+			/*	var oChart,
+					self = this,
+					oBindingParameters = this.oBindingParameters,
+					oView = this.getView();
 
-			oView.getModel().getMetaModel().loaded().then(function() {
-				oChart = oView.byId("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290");
-				var oParameters = oBindingParameters['sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290'];
+				oView.getModel().getMetaModel().loaded().then(function() {
+					oChart = oView.byId("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290");
+					var oParameters = oBindingParameters['sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290'];
 
-				KPIHelper.getKPIModel("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290", oChart, oView.getModel(), oParameters.path,
-					oChart.getDimensions(), {
-						"MES_Transport_COUNT": {
-							"source": "Transport",
-							"operation": "COUNT"
-						}
-					}, self.updateBindingOptions.bind(self),
-					function(oKPIModel) {
-						oChart = oView.byId("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290");
-						oChart.setModel(oKPIModel, "kpiModel");
-						oChart.bindData({
-							path: "/",
-							model: "kpiModel"
+					KPIHelper.getKPIModel("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290", oChart, oView.getModel(), oParameters.path,
+						oChart.getDimensions(), {
+							"MES_Transport_COUNT": {
+								"source": "Transport",
+								"operation": "COUNT"
+							}
+						}, self.updateBindingOptions.bind(self),
+						function(oKPIModel) {
+							oChart = oView.byId("sap_Responsive_Page_0-content-sap_chart_PieChart-1519390852290");
+							oChart.setModel(oKPIModel, "kpiModel");
+							oChart.bindData({
+								path: "/",
+								model: "kpiModel"
+							});
 						});
-					});
 
-			});
+				});
 
-			oView.getModel().getMetaModel().loaded().then(function() {
-				oChart = oView.byId("sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730");
-				var oParameters = oBindingParameters['sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730'];
+				oView.getModel().getMetaModel().loaded().then(function() {
+					oChart = oView.byId("sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730");
+					var oParameters = oBindingParameters['sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730'];
 
-				oChart.bindData(oBindingParameters['sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730']);
+					oChart.bindData(oBindingParameters['sap_Responsive_Page_0-content-sap_chart_LineChart-1519391500730']);
 
-			});
+				});*/
 
 		}
 	});

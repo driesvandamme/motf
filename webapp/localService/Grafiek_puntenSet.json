@@ -1,1 +1,49 @@
-[{"Average":20,"Month":"March","ID":"1"},{"Average":30,"Month":"April","ID":"2"},{"Average":50,"Month":"May","ID":"3"},{"Average":70,"Month":"June","ID":"4"},{"Average":90,"Month":"July","ID":"5"},{"Average":150,"Month":"August","ID":"6"},{"Average":160,"Month":"September","ID":"7"},{"Average":120,"Month":"October","ID":"8"},{"Average":110,"Month":"November","ID":"9"},{"Average":100,"Month":"December","ID":"10"},{"Average":130,"Month":"January","ID":"11"},{"Average":120,"Month":"February","ID":"12"}]
+[{
+	"Average": 20,
+	"Month": "March",
+	"ID": "1"
+}, {
+	"Average": 30,
+	"Month": "April",
+	"ID": "2"
+}, {
+	"Average": 50,
+	"Month": "May",
+	"ID": "3"
+}, {
+	"Average": 70,
+	"Month": "June",
+	"ID": "4"
+}, {
+	"Average": 90,
+	"Month": "July",
+	"ID": "5"
+}, {
+	"Average": 150,
+	"Month": "August",
+	"ID": "6"
+}, {
+	"Average": 160,
+	"Month": "September",
+	"ID": "7"
+}, {
+	"Average": 120,
+	"Month": "October",
+	"ID": "8"
+}, {
+	"Average": 110,
+	"Month": "November",
+	"ID": "9"
+}, {
+	"Average": 100,
+	"Month": "December",
+	"ID": "10"
+}, {
+	"Average": 130,
+	"Month": "January",
+	"ID": "11"
+}, {
+	"Average": 120,
+	"Month": "February",
+	"ID": "12"
+}]

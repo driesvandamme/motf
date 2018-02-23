@@ -2,9 +2,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
 	"sap/ui/core/routing/History",
-	"../model/kpiHelper",
 	"sap/ui/model/json/JSONModel"
-], function(BaseController, MessageBox, Utilities, History, KPIHelper, JSONModel) {
+], function(BaseController, MessageBox, Utilities, History, JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Employee", {
@@ -235,11 +234,41 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				});*/
 
 			var oVizFramePie = this.getView().byId("idVizFramePie");
-			var oModel = new JSONModel();
-			oModel.loadData("../localService/Taart_transportSet.json");
+			var oModel2 = new JSONModel();
+			oModel2.loadData("../localService/Taart_transportSet.json");
 
-			oModel.attachRequestCompleted(function(oEvent) {
-				oVizFramePie.setModel(oModel);
+			oModel2.attachRequestCompleted(function(oEvent) {
+				oVizFramePie.setModel(oModel2);
+
+				oVizFramePie.setVizProperties({
+					title: {
+						text: "Amount of usage"
+					},
+					plotArea: {
+						dataLabel: {
+							visible: true
+						}
+					}
+				});
+			});
+
+			var oVizFrameLine = this.getView().byId("oVizFrameLine");
+			var oModel3 = new JSONModel();
+			oModel3.loadData("../localService/Grafiek_puntenSet.json");
+
+			oModel3.attachRequestCompleted(function(oEvent) {
+				oVizFrameLine.setModel(oModel3);
+
+				oVizFrameLine.setVizProperties({
+					title: {
+						text: "Average score per month"
+					},
+					plotArea: {
+						dataLabel: {
+							visible: true
+						}
+					}
+				});
 			});
 
 		},

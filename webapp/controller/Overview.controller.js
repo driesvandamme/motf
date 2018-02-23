@@ -265,6 +265,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				});
 
 			},
+			onItemClose: function(oEvent) {
+				var oItem = oEvent.getSource(),
+					oList = oItem.getParent();
+
+				oList.removeItem(oItem);
+				oList.setProperty("visible", false);
+
+			},
 			onInit: function() {
 				this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 				this.oRouter.getTarget("Overview").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));

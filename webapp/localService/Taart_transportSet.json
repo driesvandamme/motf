@@ -1,85 +1,13 @@
 [{
 	"Transport": "Car",
-	"ID": "1"
-}, {
-	"Transport": "Car",
-	"ID": "2"
-}, {
-	"Transport": "Car",
-	"ID": "3"
+	"Amount": "8"
 }, {
 	"Transport": "Carpooling (driver)",
-	"ID": "4"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "5"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "6"
+	"Amount": "10"
 }, {
 	"Transport": "Carpooling (passenger)",
-	"ID": "7"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "8"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "9"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "10"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "11"
-}, {
-	"Transport": "Car",
-	"ID": "12"
-}, {
-	"Transport": "Car",
-	"ID": "13"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "14"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "15"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "16"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "17"
+	"Amount": "9"
 }, {
 	"Transport": "Train",
-	"ID": "18"
-}, {
-	"Transport": "Car",
-	"ID": "19"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "20"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "21"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "22"
-}, {
-	"Transport": "Carpooling (driver)",
-	"ID": "23"
-}, {
-	"Transport": "Car",
-	"ID": "24"
-}, {
-	"Transport": "Car",
-	"ID": "25"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "26"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "27"
-}, {
-	"Transport": "Carpooling (passenger)",
-	"ID": "28"
+	"Amount": "1"
 }]

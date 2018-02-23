@@ -190,7 +190,6 @@ sap.ui.define([
 	};
 }, true);
 
-
 function performRead(event) {
 	var oSortAndFilters = fnSortAndFilter(sName) || {};
 	var mQueryParams = {
@@ -205,8 +204,7 @@ function performRead(event) {
 			throw new Error("Error while loading the data in order to create the KPI Model", oError);
 		}
 	};
-	oModel.read(sEntityName, mQueryParams);
-}
-}
+	oModel.read(sEntityName, mQueryParams);}
+
 };
 }, true); >>> >>> > 94 af4fa Added tile,

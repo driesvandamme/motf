@@ -16,20 +16,36 @@
 					<ObjectStatus text="215" state="None"/>
 				</secondStatus>
 			</ObjectListItem>
-			<viz:VizFrame id="idVizFramePie" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='pie'>
+			<viz:VizFrame id="idVizFramePie" height='50%' width="50%" vizType='pie'>
 				<viz:dataset>
 					<viz.data:FlattenedDataset data="{/}">
 						<viz.data:dimensions>
-							<viz.data:DimensionDefinition name="Store Name" value="{Store Name}"/>
+							<viz.data:DimensionDefinition name="Transport" value="{Transport}"/>
 						</viz.data:dimensions>
 						<viz.data:measures>
-							<viz.data:MeasureDefinition name="Revenue" value="{Revenue}"/>
+							<viz.data:MeasureDefinition name="Amount" value="{Amount}"/>
 						</viz.data:measures>
 					</viz.data:FlattenedDataset>
 				</viz:dataset>
 				<viz:feeds>
-					<viz.feeds:FeedItem uid="size" type="Measure" values="Revenue"/>
-					<viz.feeds:FeedItem uid="color" type="Dimension" values="Store Name"/>
+					<viz.feeds:FeedItem uid="size" type="Measure" values="Amount"/>
+					<viz.feeds:FeedItem uid="color" type="Dimension" values="Transport"/>
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="oVizFrameLine" height='50%' width="50%" vizType='line'>
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="Month" value="{Month}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="Average" value="{Average}"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="Average"/>
+					<viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Month"/>
 				</viz:feeds>
 			</viz:VizFrame>
 			<!--<chart:Chart id="sap_Responsive_Page_0-content-sap_chart_PieChart-1519375832187" width="320px" height="135px" visibleDimensions="Transport"
