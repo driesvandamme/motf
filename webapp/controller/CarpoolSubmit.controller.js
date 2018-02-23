@@ -97,27 +97,60 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			});
 
 		},
-				onAfterRendering: function(){
-			if (!this.initialized) {
-	            this.initialized = true;
-	            this.geocoder = new google.maps.Geocoder();
-	            var mapOptions = {
-	                center: new google.maps.LatLng(-34.397, 150.644),
-	                zoom: 8,
-	                mapTypeId: google.maps.MapTypeId.ROADMAP
-	            };
-	            this.map = new google.maps.Map(this.getView().byId("map_canvas").getDomRef(), mapOptions);
-	        }
-		},
-		_onSegmentedButtonItemPress1: function() {
+		
+	_onSegmentedButtonItemPress1: function() {
 
 			alert("Send to Kurt Ranft");
 
 		},
-      
+		
+		
+		onAfterRendering: function(){
+			var directionsService = new google.maps.DirectionsService();
+			if (!this.initialized) {
+	            this.initialized = true;
+	            this.geocoder = new google.maps.Geocoder();
+	            var mapOptions = {
+	                center: new google.maps.LatLng(50.8503396,4.351710300000036),
+	                zoom: 8,
+	                mapTypeId: google.maps.MapTypeId.ROADMAP,
+	                // start_address: "Brussels, Belgium",
+	                // end_address: "Ghent, Belgium"
+	            };
+	            this.calculateAndDisplayRoute(directionsService);
+	            this.map = new google.maps.Map(this.getView().byId("map_canvas").getDomRef(), mapOptions);
+	        }
+		},
+		
+		 calculateAndDisplayRoute: function(directionsService) {
+    		directionsService.route({
+          origin: "Halifax, NS",
+          destination: "Seattle, WA",
+          waypoints: [{
+          				location: "toronto, ont",
+            			stopover: true
+          	}],
+          optimizeWaypoints: true,
+          travelMode: 'DRIVING'
+        });
+      },
+
+		
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("CarpoolSubmit").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+				$.ajax({
+				url: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUV5uTWtLmMOmLQDnEDMqGDcATjqiGf8U",
+				type: "GET",
+				dataType: "text",
+				contentType: "application/json;",
+				success: function(data, textStatus) {
+					console.log(data);
+				},
+				error: function(xhr, status) {
+					console.log("ERROR");
+				}
+			}); 
 		}
 	});
 }, /* bExport= */ true);
