@@ -168,9 +168,9 @@ sap.ui.define([
                 path: sEntityName,
                 events: {
                     change: performRead.bind(this),
-dataReceived: performRead.bind(this)
+					dataReceived: performRead.bind(this)
                 }
-            })
+            });
 
             function performRead(event) {
                 var oSortAndFilters = fnSortAndFilter(sName) || {};

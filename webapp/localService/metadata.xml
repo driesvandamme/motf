@@ -1,7 +1,122 @@
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
     <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="e3de3ae2033c5fb70f522c61" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-            <EntityContainer Name="e3de3ae2033c5fb70f522c61_Entities" m:IsDefaultEntityContainer="true"/>
+        <Schema Namespace="3aea2048297d661d0f522b63" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="3aea2048297d661d0f522b63_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Home_addressSet" EntityType="3aea2048297d661d0f522b63.Home_address" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Work_addressSet" EntityType="3aea2048297d661d0f522b63.Work_address" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="CarSet" EntityType="3aea2048297d661d0f522b63.Car" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="FuelSet" EntityType="3aea2048297d661d0f522b63.Fuel" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="YearsSet" EntityType="3aea2048297d661d0f522b63.Years" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="PersonsSet" EntityType="3aea2048297d661d0f522b63.Persons" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="DatumSet" EntityType="3aea2048297d661d0f522b63.Datum" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="TransportationMethodSet" EntityType="3aea2048297d661d0f522b63.TransportMethod" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="ScoreSet" EntityType="3aea2048297d661d0f522b63.Score" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Taart_transportSet" EntityType="3aea2048297d661d0f522b63.Taart_transport" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Grafiek_puntenSet" EntityType="3aea2048297d661d0f522b63.Grafiek_punten" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Taart_transport2Set" EntityType="3aea2048297d661d0f522b63.Taart_transport2" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="Grafiek_punten2Set" EntityType="3aea2048297d661d0f522b63.Grafiek_punten2" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="Home_address">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Street" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Street"/>
+                <Property Name="House_number" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="House_number"/>
+                <Property Name="City" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="City"/>
+                <Property Name="Address_number" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+            </EntityType>
+            <EntityType Name="Work_address">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Street" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+                <Property Name="Street_number" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Street_number"/>
+                <Property Name="City" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="City"/>
+                <Property Name="Address_number" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Address_number"/>
+            </EntityType>
+            <EntityType Name="Car">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name_brand" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name_brand"/>
+                <Property Name="Type_brand" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Type_brand"/>
+            </EntityType>
+            <EntityType Name="Fuel">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Fuel" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Fuel"/>
+            </EntityType>
+            <EntityType Name="Years">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Years" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Years"/>
+            </EntityType>
+            <EntityType Name="Persons">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Quantity_persons" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Quantity_persons"/>
+            </EntityType>
+            <EntityType Name="Datum">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Date" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="Date"/>
+                <Property Name="Transport" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Transport"/>
+            </EntityType>
+            <EntityType Name="TransportMethod">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Transport Method"/>
+            </EntityType>
+            <EntityType Name="Score">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Score" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Score"/>
+            </EntityType>
+            <EntityType Name="Taart_transport">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Transport" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Transport"/>
+            </EntityType>
+            <EntityType Name="Grafiek_punten">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Month" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Month"/>
+                <Property Name="Average" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Average"/>
+            </EntityType>
+            <EntityType Name="Taart_transport2">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Transport" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Transport"/>
+            </EntityType>
+            <EntityType Name="Grafiek_punten2">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Month" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Month"/>
+                <Property Name="Average" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Average"/>
+            </EntityType>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

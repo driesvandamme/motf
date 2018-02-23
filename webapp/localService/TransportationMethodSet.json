@@ -1,0 +1,11 @@
+[
+	{"Name":"Car","ID":"1"},
+	{"Name":"Carpooling (driver)","ID":"2"},
+	{"Name":"Carpooling (passenger)","ID":"3"},
+	{"Name":"Bus","ID":"4"},
+	{"Name":"Tram","ID":"5"},
+	{"Name":"Train","ID":"6"},
+	{"Name":"Bike","ID":"7"},
+	{"Name":"By foot","ID":"8"},
+	{"Name":"Work at home","ID":"9"}
+]
