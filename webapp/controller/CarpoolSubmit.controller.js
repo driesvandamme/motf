@@ -24,7 +24,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		_onPageNavButtonPress: function() {
-
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 			var oQueryParams = this.getQueryParameters(window.location);
@@ -97,49 +96,55 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			});
 
 		},
-		
-	_onSegmentedButtonItemPress1: function() {
+
+		_onSegmentedButtonItemPress1: function() {
 
 			alert("Send to Kurt Ranft");
 
 		},
-		
-		
-		onAfterRendering: function(){
-			var directionsService = new google.maps.DirectionsService();
-			if (!this.initialized) {
-	            this.initialized = true;
-	            this.geocoder = new google.maps.Geocoder();
-	            var mapOptions = {
-	                center: new google.maps.LatLng(50.8503396,4.351710300000036),
-	                zoom: 8,
-	                mapTypeId: google.maps.MapTypeId.ROADMAP,
-	                // start_address: "Brussels, Belgium",
-	                // end_address: "Ghent, Belgium"
-	            };
-	            this.calculateAndDisplayRoute(directionsService);
-	            this.map = new google.maps.Map(this.getView().byId("map_canvas").getDomRef(), mapOptions);
-	        }
-		},
-		
-		 calculateAndDisplayRoute: function(directionsService) {
-    		directionsService.route({
-          origin: "Halifax, NS",
-          destination: "Seattle, WA",
-          waypoints: [{
-          				location: "toronto, ont",
-            			stopover: true
-          	}],
-          optimizeWaypoints: true,
-          travelMode: 'DRIVING'
-        });
-      },
 
-		
+		onAfterRendering: function() {
+			this.directionsService = new google.maps.DirectionsService();
+			this.directionsDisplay = new google.maps.DirectionsRenderer();
+			
+			if (!this.initialized) {
+				this.initialized = true;
+				this.geocoder = new google.maps.Geocoder();
+				var mapOptions = {
+					center: new google.maps.LatLng(50.8503396, 4.351710300000036),
+					zoom: 8,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					// start_address: "Brussels, Belgium",
+					// end_address: "Ghent, Belgium"
+				};
+				this.calculateAndDisplayRoute(this.directionsService);
+				this.map = new google.maps.Map(this.getView().byId("map_canvas").getDomRef(), mapOptions);
+    			this.directionsDisplay.setMap(this.map);
+			}
+		},
+
+		calculateAndDisplayRoute: function(directionsService) {
+			var directionsDisplay = this.directionsDisplay;
+			directionsService.route({
+				origin: "Alfons Gossetlaan 11, Groot-Bijgaarden",
+				destination: "Dendermondsesteenweg 39, Ghent",
+				waypoints: [{
+					location: "Stationsstraat 13, Aalst",
+					stopover: true
+				}],
+				optimizeWaypoints: true,
+				travelMode: 'DRIVING'
+			}, function(result, status) {
+    			if (status === 'OK') {
+    				directionsDisplay.setDirections(result);
+    			}
+			});
+		},
+
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("CarpoolSubmit").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-				$.ajax({
+			$.ajax({
 				url: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDUV5uTWtLmMOmLQDnEDMqGDcATjqiGf8U",
 				type: "GET",
 				dataType: "text",
@@ -150,7 +155,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				error: function(xhr, status) {
 					console.log("ERROR");
 				}
-			}); 
+			});
 		}
 	});
 }, /* bExport= */ true);
