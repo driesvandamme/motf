@@ -1,0 +1,22 @@
+{
+    "dataBinding": {
+        "/webapp/view/Overview.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Settings.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Carpooling.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CoeffCompany.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/RewardsPage.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Planning.view.xml": {
+            "entitySet": ""
+        } 
+    }
+}

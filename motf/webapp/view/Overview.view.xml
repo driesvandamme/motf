@@ -1,0 +1,71 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Overview" xmlns="sap.m">
+	<Page showHeader="true" title="Overview" showFooter="false" showNavButton="false" xmlns:l="sap.ui.layout">
+		<content>
+			<Toolbar>
+				<SegmentedButton selectionChange="onSelectHomeWork" id="idDirectionChoice" class="sapUiTinyMarginBegin sapUiTinyMarginTop" width="auto"
+					enabled="true" visible="true">
+					<items>
+						<SegmentedButtonItem icon="sap-icon://building" text="To Work" width="auto" enabled="true"/>
+						<SegmentedButtonItem icon="sap-icon://home" text="To Home" width="auto" enabled="true"/>
+					</items>
+				</SegmentedButton>
+			</Toolbar>
+			<GenericTile id="idTrainTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by train">
+				<TileContent id="idTrainTileContent" unit="Points">
+					<NumericContent value="9" valueColor="Neutral" indicator="None" icon="sap-icon://passenger-train"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="idCarTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by car">
+				<TileContent id="idCarTileContent" unit="Points">
+					<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Planning" subheader="" frameType="Auto"
+				press="_onGenericTilePress">
+				<tileContent>
+					<TileContent footer="" unit="Days">
+						<content>
+							<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://date-time"/>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Points" subheader="Earned" frameType="Auto"
+				press="_onGenericTilePress1">
+				<tileContent>
+					<TileContent footer="" unit="Points">
+						<content>
+							<NumericContent value="200" valueColor="Neutral" indicator="None" icon="sap-icon://number-sign"/>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Carpool" subheader="" frameType="Auto"
+				press="_onGenericTilePress2">
+				<tileContent>
+					<TileContent footer="" unit="Options">
+						<content>
+							<NumericContent value="4" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Company" subheader="Coefficient" frameType="Auto"
+				press="_onGenericTilePress3">
+				<tileContent>
+					<TileContent footer="" unit="">
+						<content>
+							<NumericContent value="150" valueColor="Neutral" indicator="None"/>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+		</content>
+		<headerContent>
+			<Button text="" type="Default" icon="sap-icon://user-settings" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="_onButtonPress"/>
+		</headerContent>
+		<subHeader/>
+		<customHeader/>
+	</Page>
+</mvc:View>

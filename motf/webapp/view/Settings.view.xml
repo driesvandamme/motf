@@ -1,0 +1,85 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Settings" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page showHeader="true" title="Settings" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+		<content>
+			<List id="sap_Responsive_Page_0-content-sap_m_List-1519346905118" mode="SingleSelectLeft" width="100%" headerText="Home address"
+				footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+				items="{/Home_addressSet}">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar/>
+				<items>
+					<ObjectListItem intro="" title="{Street}" icon="sap-icon://home" number="{House_number}" numberUnit="{City}" numberState="None"
+						type="Active" selected="true" showMarkers="false">
+						<attributes/>
+						<firstStatus/>
+						<secondStatus/>
+					</ObjectListItem>
+				</items>
+			</List>
+			<List mode="SingleSelectLeft" width="100%" headerText="Work address" footerText="" backgroundDesign="Solid" showSeparators="All"
+				growing="true" growingThreshold="20" growingScrollToLoad="true" items="{/Work_addressSet}">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar/>
+				<items>
+					<ObjectListItem intro="" title="{Street}" icon="sap-icon://factory" number="{Street_number}" numberUnit="{City}" numberState="None"
+						type="Active" selected="true" showMarkers="false">
+						<attributes/>
+						<firstStatus/>
+						<secondStatus/>
+					</ObjectListItem>
+				</items>
+			</List>
+			<CheckBox text="Car" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<Label text="Brand car" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+				<items>
+					<core:Item text="Item" enabled="true" key="Item"/>
+				</items>
+			</ComboBox>
+			<Label text="Type car" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/CarSet}">
+				<items>
+					<core:Item text="{Type_brand}" enabled="true" key="{Type_brand}"/>
+				</items>
+			</ComboBox>
+			<Label text="Year of production" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/YearsSet}">
+				<items>
+					<core:Item text="{Years}" enabled="true" key="{Years}"/>
+				</items>
+			</ComboBox>
+			<Label text="Fuel source" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/FuelSet}">
+				<items>
+					<core:Item text="{Fuel}" enabled="true" key="{Fuel}"/>
+				</items>
+			</ComboBox>
+			<Label text="Quantity of carpool persons" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{/PersonsSet}">
+				<items>
+					<core:Item text="{Quantity_persons}" enabled="true" key="{Quantity_persons}"/>
+				</items>
+			</ComboBox>
+			<CheckBox text="Bus" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<CheckBox text="Bike" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<CheckBox text="Train" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+			<CheckBox text="Tram" selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+		</content>
+		<footer/>
+		<headerContent/>
+		<subHeader/>
+		<customHeader/>
+	</Page>
+</mvc:View>
