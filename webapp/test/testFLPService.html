@@ -36,7 +36,6 @@
 			src="/resources/sap-ui-core.js"
             data-sap-ui-libs="sap.m,sap.ushell"
 			data-sap-ui-theme="sap_belize"
-			
             data-sap-ui-supportedLanguages="en"
             data-sap-ui-bindingSyntax="complex"
 			data-sap-ui-compatVersion="edge" 
@@ -50,13 +49,8 @@
         	        //Fake LREP
         	        jQuery.sap.require("sap.ui.fl.FakeLrepConnector");
         	        sap.ui.fl.FakeLrepConnector.enableFakeConnector("fakeLRep.json");
-
-        	        
-        			  	
 							// initialize the ushell sandbox component
 							sap.ushell.Container.createRenderer().placeAt("app");
-						
-        			
                 });
         	</script>
 	</head>
