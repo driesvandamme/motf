@@ -7,9 +7,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Carpooling", {
 		handleRouteMatched: function(oEvent) {
-
 			var oParams = {};
-
 			if (oEvent.mParameters.data.context) {
 				this.sContext = oEvent.mParameters.data.context;
 				var oPath;
@@ -21,10 +19,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					this.getView().bindObject(oPath);
 				}
 			}
-
+		},
+		onAfterRendering: function(){
+			if (!this.initialized) {
+	            this.initialized = true;
+	            this.geocoder = new google.maps.Geocoder();
+	            var mapOptions = {
+	                center: new google.maps.LatLng(-34.397, 150.644),
+	                zoom: 8,
+	                mapTypeId: google.maps.MapTypeId.ROADMAP
+	            };
+	            this.map = new google.maps.Map(this.getView().byId("map_canvas").getDomRef(), mapOptions);
+	        }
 		},
 		_onPageNavButtonPress: function() {
-
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 			var oQueryParams = this.getQueryParameters(window.location);
@@ -37,7 +45,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			}
 		},
 		getQueryParameters: function(oLocation) {
-
 			var oQuery = {};
 			var aParams = oLocation.search.substring(1).split("&");
 			for (var i = 0; i < aParams.length; i++) {
@@ -45,12 +52,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				oQuery[aPair[0]] = decodeURIComponent(aPair[1]);
 			}
 			return oQuery;
-
 		},
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("Carpooling").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-
+			
 		}
 	});
 }, /* bExport= */ true);

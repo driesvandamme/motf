@@ -1,19 +1,5 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Carpooling" xmlns="sap.m">
-    <Page showHeader="true" title="Carpooling" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-        <content/>
-        <footer>
-            <Bar design="Auto">
-                <contentLeft/>
-                <contentMiddle/>
-                <contentRight>
-                    <Button text="Approve" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="Reject" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="" type="Default" icon="sap-icon://action" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                </contentRight>
-            </Bar>
-        </footer>
-        <headerContent/>
-        <subHeader/>
-        <customHeader/>
-    </Page>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Carpooling" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="true" title="Carpooling" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+		<HBox id="map_canvas" fitContainer="true" justifyContent="Center" alignItems="Center" />
+	</Page>
 </mvc:View>
