@@ -106,11 +106,25 @@
 					"viewLevel": 7,
 					"transition": "slide"
 				},
+				"Achievements": {
+					"controlAggregation": "pages",
+					"viewName": "Achievements",
+					"viewId": "Achievements",
+					"viewLevel": 9,
+					"transition": "slide"
+				},
 				"Overview": {
 					"controlAggregation": "pages",
 					"viewName": "Overview",
 					"viewId": "Overview",
 					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"TransportPoints": {
+					"controlAggregation": "pages",
+					"viewName": "TransportPoints",
+					"viewId": "TransportPoints",
+					"viewLevel": 10,
 					"transition": "slide"
 				},
 				"Settings": {
@@ -191,10 +205,22 @@
 					"CoeffCompany"
 				]
 			}, {
+				"pattern": "TransportPoints/:context:",
+				"name": "TransportPoints",
+				"target": [
+					"TransportPoints"
+				]
+			}, {
 				"pattern": "RewardsPage/:context:",
 				"name": "RewardsPage",
 				"target": [
 					"RewardsPage"
+				]
+			}, {
+				"pattern": "Achievements/:context:",
+				"name": "Achievements",
+				"target": [
+					"Achievements"
 				]
 			}, {
 				"pattern": "Planning/:context:",

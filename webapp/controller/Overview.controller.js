@@ -136,18 +136,34 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 			},
 			_onGenericTilePress4: function(oEvent) {
-
 				var oBindingContext = oEvent.getSource().getBindingContext();
-
 				return new Promise(function(fnResolve) {
-
 					this.doNavigate("Employee", oBindingContext, fnResolve, "");
 				}.bind(this)).catch(function(err) {
 					if (err !== undefined) {
 						MessageBox.error(err.message);
 					}
 				});
-
+			},
+			_onGenericTilePress5: function(oEvent) {
+				var oBindingContext = oEvent.getSource().getBindingContext();
+				return new Promise(function(fnResolve) {
+					this.doNavigate("Achievements", oBindingContext, fnResolve, "");
+				}.bind(this)).catch(function(err) {
+					if (err !== undefined) {
+						MessageBox.error(err.message);
+					}
+				});
+			},
+			_onGenericTilePress6: function(oEvent) {
+				var oBindingContext = oEvent.getSource().getBindingContext();
+				return new Promise(function(fnResolve) {
+					this.doNavigate("TransportPoints", oBindingContext, fnResolve, "");
+				}.bind(this)).catch(function(err) {
+					if (err !== undefined) {
+						MessageBox.error(err.message);
+					}
+				});
 			},
 			_onButtonPress: function(oEvent) {
 

@@ -1,0 +1,40 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Achievements" xmlns="sap.m" xmlns:layout1="sap.ui.layout">
+    <Page showHeader="true" title="Your Achievements" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+        <content>
+            <layout1:VerticalLayout width="100%" visible="true">
+                <layout1:content>
+                    <ObjectListItem intro="" title="Achievements in progress" icon="sap-icon://puzzle" number="" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                        <attributes/>
+                        <firstStatus/>
+                        <secondStatus/>
+                    </ObjectListItem>
+                </layout1:content>
+            </layout1:VerticalLayout>
+            <Label text="Driving 5 days by bike in a row to work" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+            <ProgressIndicator width="100%" percentValue="60" showValue="true" displayValue="60 %" state="Warning" enabled="true" visible="true"/>
+            <Label text="Taking 25 passengers as a carpool driver" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+            <ProgressIndicator width="100%" percentValue="75" showValue="true" displayValue="75 %" state="Warning" enabled="true" visible="true"/>
+            <Label text="Being top 10% of the employee leaderboard" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+            <ProgressIndicator width="100%" percentValue="0" showValue="true" displayValue="0 %" state="Warning" enabled="true" visible="true"/>
+            <layout1:VerticalLayout width="100%" visible="true">
+                <layout1:content>
+                    <ObjectListItem intro="" title="Achievements completed" icon="sap-icon://competitor" number="" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                        <attributes/>
+                        <firstStatus/>
+                        <secondStatus/>
+                    </ObjectListItem>
+                </layout1:content>
+            </layout1:VerticalLayout>
+            <Label text="Die hard biker (going to work in the rain)" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+            <ProgressIndicator width="100%" percentValue="100" showValue="true" displayValue="100 %" state="Success" enabled="true" visible="true"/>
+            <Label text="Taking 4 passengers as a carpool driver" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+            <ProgressIndicator width="100%" percentValue="100" showValue="true" displayValue="100 %" state="Success" enabled="true" visible="true"/>
+            <Label text="Join as a passenger in a carpool" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+            <ProgressIndicator width="100%" percentValue="100" showValue="true" displayValue="100 %" state="Success" enabled="true" visible="true"/>
+        </content>
+        <footer/>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

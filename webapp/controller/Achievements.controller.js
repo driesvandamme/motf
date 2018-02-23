@@ -1,16 +1,15 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
-	"sap/ui/core/routing/History",
-	"../util/formatter"
-], function(BaseController, MessageBox, Utilities, History, Formatter) {
+	"sap/ui/core/routing/History"
+], function(BaseController, MessageBox, Utilities, History) {
 	"use strict";
 
-	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Planning", {
-		formatter: Formatter,
+	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Achievements", {
 		handleRouteMatched: function(oEvent) {
-			debugger;
+
 			var oParams = {};
+
 			if (oEvent.mParameters.data.context) {
 				this.sContext = oEvent.mParameters.data.context;
 				var oPath;
@@ -22,10 +21,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					this.getView().bindObject(oPath);
 				}
 			}
+
 		},
 		_onPageNavButtonPress: function(oEvent) {
+
 			var oBindingContext = oEvent.getSource().getBindingContext();
+
 			return new Promise(function(fnResolve) {
+
 				this.doNavigate("Page1", oBindingContext, fnResolve, "");
 			}.bind(this)).catch(function(err) {
 				if (err !== undefined) {
@@ -35,6 +38,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
+
 			var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
 			var oModel = (oBindingContext) ? oBindingContext.getModel() : null;
 
@@ -89,15 +93,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("Planning").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-			this.getView().setBusy(true);
-			var that = this;
-			this.getView().byId('timeline').onAfterRendering = function(){
-				 if (sap.suite.ui.commons.Timeline.prototype.onAfterRendering) {
-		          sap.suite.ui.commons.Timeline.prototype.onAfterRendering.apply(this, arguments);
-		        }
-				that.getView().setBusy(false);
-			};
+			this.oRouter.getTarget("Achievements").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+
 		}
 	});
 }, /* bExport= */ true);
