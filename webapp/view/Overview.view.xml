@@ -19,6 +19,17 @@
 					<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
 				</TileContent>
 			</GenericTile>
+			<GenericTile id="idBikeTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by bike">
+				<TileContent id="idBikeTileContent" unit="Points">
+					<NumericContent value="10" valueColor="Neutral" indicator="None" icon="sap-icon://circle-task"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="idMyEmpTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Overview Leonardo Belize"
+				press="_onGenericTilePress4">
+				<TileContent id="idMyEmpTileContent" unit="Points">
+					<NumericContent value="300" valueColor="Neutral" indicator="None" icon="sap-icon://employee"/>
+				</TileContent>
+			</GenericTile>
 			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Planning" subheader="" frameType="Auto"
 				press="_onGenericTilePress">
 				<tileContent>
@@ -34,7 +45,7 @@
 				<tileContent>
 					<TileContent footer="" unit="Points">
 						<content>
-							<NumericContent value="200" valueColor="Neutral" indicator="None" icon="sap-icon://number-sign"/>
+							<NumericContent value="300" valueColor="Neutral" indicator="None" icon="sap-icon://number-sign"/>
 						</content>
 					</TileContent>
 				</tileContent>

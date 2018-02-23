@@ -77,6 +77,13 @@
 				}
 			},
 			"targets": {
+				"Employee": {
+					"controlAggregation": "pages",
+					"viewName": "Employee",
+					"viewId": "Employee",
+					"viewLevel": 7,
+					"transition": "slide"
+				},
 				"Overview": {
 					"controlAggregation": "pages",
 					"viewName": "Overview",
@@ -120,57 +127,56 @@
 					"transition": "slide"
 				}
 			},
-			"routes": [
-				{
-					"pattern": "Overview/:context:",
-					"name": "Overview",
-					"target": [
-						"Overview"
-					]
-				},
-				{
-					"pattern": "",
-					"name": "default",
-					"target": [
-						"Overview"
-					]
-				},
-				{
-					"pattern": "Settings/:context:",
-					"name": "Settings",
-					"target": [
-						"Settings"
-					]
-				},
-				{
-					"pattern": "Carpooling/:context:",
-					"name": "Carpooling",
-					"target": [
-						"Carpooling"
-					]
-				},
-				{
-					"pattern": "CoeffCompany/:context:",
-					"name": "CoeffCompany",
-					"target": [
-						"CoeffCompany"
-					]
-				},
-				{
-					"pattern": "RewardsPage/:context:",
-					"name": "RewardsPage",
-					"target": [
-						"RewardsPage"
-					]
-				},
-				{
-					"pattern": "Planning/:context:",
-					"name": "Planning",
-					"target": [
-						"Planning"
-					]
-				}
-			]
+			"routes": [{
+				"pattern": "Employee/:context:",
+				"name": "Employee",
+				"target": [
+					"Employee"
+				]
+			}, {
+
+				"pattern": "Overview/:context:",
+				"name": "Overview",
+				"target": [
+					"Overview"
+				]
+			}, {
+				"pattern": "",
+				"name": "default",
+				"target": [
+					"Overview"
+				]
+			}, {
+				"pattern": "Settings/:context:",
+				"name": "Settings",
+				"target": [
+					"Settings"
+				]
+			}, {
+				"pattern": "Carpooling/:context:",
+				"name": "Carpooling",
+				"target": [
+					"Carpooling"
+				]
+			}, {
+				"pattern": "CoeffCompany/:context:",
+				"name": "CoeffCompany",
+				"target": [
+					"CoeffCompany"
+				]
+			}, {
+				"pattern": "RewardsPage/:context:",
+				"name": "RewardsPage",
+				"target": [
+					"RewardsPage"
+				]
+			}, {
+				"pattern": "Planning/:context:",
+				"name": "Planning",
+				"target": [
+					"Planning"
+				]
+			}]
 		}
 	}
 }

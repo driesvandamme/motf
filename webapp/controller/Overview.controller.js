@@ -135,6 +135,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				});
 
 			},
+			_onGenericTilePress4: function(oEvent) {
+
+				var oBindingContext = oEvent.getSource().getBindingContext();
+
+				return new Promise(function(fnResolve) {
+
+					this.doNavigate("Employee", oBindingContext, fnResolve, "");
+				}.bind(this)).catch(function(err) {
+					if (err !== undefined) {
+						MessageBox.error(err.message);
+					}
+				});
+
+			},
 			_onButtonPress: function(oEvent) {
 
 				var oBindingContext = oEvent.getSource().getBindingContext();
@@ -162,6 +176,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 							"&mode=transit&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
 						var carUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + homeAddress + "&destination=" + workAddress +
 							"&mode=driving&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+						var bikeUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + homeAddress + "&destination=" + workAddress +
+							"&mode=bicycling&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
 						break;
 					case 1: //To home
 						var trainUrl =
@@ -169,6 +185,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 							"&mode=transit&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
 						var carUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + workAddress + "&destination=" + homeAddress +
 							"&mode=driving&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+						var bikeUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + workAddress + "&destination=" + homeAddress +
+							"&mode=bicycling&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
 						break;
 					default:
 				}
@@ -223,6 +241,28 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						console.log("ERROR");
 					}
 				});
+				//Get Bike data
+				var bikeTime;
+				var bikeDistance;
+				var thatBike = this;
+
+				$.ajax({
+					url: bikeUrl,
+					type: "GET",
+					dataType: "text",
+					contentType: "application/json;",
+					success: function(data) {
+						var bikeData = JSON.parse(data);
+						bikeTime = bikeData.routes[0].legs[0].duration.text;
+						bikeDistance = bikeData.routes[0].legs[0].distance.text;
+
+						//that.getView().byId("idCarTileContent").setProperty("footer", departureTime + "-" + arrivalTime);
+						thatBike.getView().byId("idBikeTile").setProperty("subheader", bikeTime + " for " + bikeDistance + " kilometers");
+					},
+					error: function(xhr, status) {
+						console.log("ERROR");
+					}
+				});
 
 			},
 			onInit: function() {
@@ -237,6 +277,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					"&mode=transit&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
 				var carUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + homeAddress + "&destination=" + workAddress +
 					"&mode=driving&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
+				var bikeUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + workAddress + "&destination=" + homeAddress +
+					"&mode=bicycling&key=AIzaSyDat0kYBy6-O7ZMedb0Fuxs_snx3kDdqPI";
 
 				//Get train data
 				var transitTime;
@@ -283,6 +325,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 						//that.getView().byId("idCarTileContent").setProperty("footer", departureTime + "-" + arrivalTime);
 						that.getView().byId("idCarTile").setProperty("subheader", carTime + " for " + carDistance + " kilometers");
+					},
+					error: function(xhr, status) {
+						console.log("ERROR");
+					}
+				});
+
+				//Get Bike data
+				var bikeTime;
+				var bikeDistance;
+				var thatBike = this;
+
+				$.ajax({
+					url: bikeUrl,
+					type: "GET",
+					dataType: "text",
+					contentType: "application/json;",
+					success: function(data) {
+						var bikeData = JSON.parse(data);
+						bikeTime = bikeData.routes[0].legs[0].duration.text;
+						bikeDistance = bikeData.routes[0].legs[0].distance.text;
+
+						//that.getView().byId("idCarTileContent").setProperty("footer", departureTime + "-" + arrivalTime);
+						thatBike.getView().byId("idBikeTile").setProperty("subheader", bikeTime + " for " + bikeDistance + " kilometers");
 					},
 					error: function(xhr, status) {
 						console.log("ERROR");
