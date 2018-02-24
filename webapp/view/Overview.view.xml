@@ -45,7 +45,7 @@
 				<tileContent>
 					<TileContent footer="" unit="Options">
 						<content>
-							<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
+							<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
 						</content>
 					</TileContent>
 				</tileContent>
@@ -59,7 +59,7 @@
 					</TileContent>
 				</tileContent>
 			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Points" subheader="Earned" frameType="Auto" press="_onGenericTilePress1">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Rewards" subheader="Earned" frameType="Auto" press="_onGenericTilePress1">
 				<tileContent>
 					<TileContent footer="" unit="Points">
 						<content>
@@ -72,7 +72,7 @@
 				<tileContent>
 					<TileContent footer="" unit="">
 						<content>
-							<NumericContent value="150" valueColor="Neutral" indicator="None"/>
+							<NumericContent value="8,2" valueColor="Neutral" indicator="None"/>
 						</content>
 					</TileContent>
 				</tileContent>
@@ -85,10 +85,6 @@
 			<List id="notificationList" class="sapContrast sapContrastPlus sapUiTinyMarginBegin sapUiTinyMarginTop" width="99%">
 				<NotificationListItem title="Potential carpool options" description="Jason Wouters, Elise Van Veen are taking the same route as you. "
 					showCloseButton="true" unread="true" priority="High" close="onItemClose" press="onListItemPress" authorPicture="sap-icon://group">
-					<buttons>
-						<Button text="Accept" type="Accept" press="onAcceptPress"/>
-						<Button text="Reject" type="Reject" press="onRejectPress"/>
-					</buttons>
 				</NotificationListItem>
 			</List>
 		</content>

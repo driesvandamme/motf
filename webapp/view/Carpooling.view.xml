@@ -7,17 +7,12 @@
                         <layout1:control>
                             <layout:VerticalLayout width="100%" visible="true">
                                 <layout:content>
-                                    <ObjectListItem intro="Option 1" title="Kurt Ranft" icon="sap-icon://car-rental" number="34" numberUnit="Hours" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress">
+                                    <ObjectListItem intro="Option 1" title="Jason Wouters" icon="sap-icon://car-rental" number="34" numberUnit="Minutes" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress">
                                         <attributes/>
                                         <firstStatus/>
                                         <secondStatus/>
                                     </ObjectListItem>
-                                    <ObjectListItem intro="Option 2" title="Pascal Decock" icon="sap-icon://car-rental" number="39" numberUnit="Hours" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress1">
-                                        <attributes/>
-                                        <firstStatus/>
-                                        <secondStatus/>
-                                    </ObjectListItem>
-                                    <ObjectListItem intro="Option 3" title="Dries Damme" icon="sap-icon://car-rental" number="42" numberUnit="Hours" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress2">
+                                    <ObjectListItem intro="Option 2" title="Elise Van Veen" icon="sap-icon://car-rental" number="39" numberUnit="Minutes" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress1">
                                         <attributes/>
                                         <firstStatus/>
                                         <secondStatus/>

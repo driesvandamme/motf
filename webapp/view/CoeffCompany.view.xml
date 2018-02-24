@@ -13,8 +13,8 @@
 			<ObjectListItem intro="Leaderboard companies" title="SAP" number="18595" numberUnit="" numberState="None" type="Active" selected="false"
 				showMarkers="false">
 				<attributes>
-					<ObjectAttribute text="Microsoft" active="false"/>
-					<ObjectAttribute text="Delhaize" active="false"/>
+					<ObjectAttribute text="Taxistop" active="false"/>
+					<ObjectAttribute text="Y4PT" active="false"/>
 				</attributes>
 				<firstStatus>
 					<ObjectStatus text="17006" state="None"/>

@@ -99,8 +99,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		_onSegmentedButtonItemPress1: function() {
 
-			alert("Send to Kurt Ranft");
-
+    			sap.m.MessageToast.show('Send to Jonas'); // default disappear in 3 sec
 		},
 
 		onAfterRendering: function() {

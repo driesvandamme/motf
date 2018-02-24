@@ -61,12 +61,17 @@
                         <firstStatus/>
                         <secondStatus/>
                     </ObjectListItem>
+                    <ObjectListItem intro="" title="By Foot" number="9 points" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                        <attributes/>
+                        <firstStatus/>
+                        <secondStatus/>
+                    </ObjectListItem>
                     <ObjectListItem intro="" title="Bike" number="10 points" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
                         <attributes/>
                         <firstStatus/>
                         <secondStatus/>
                     </ObjectListItem>
-                    <ObjectListItem intro="" title="By Foot" number="9 points" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
+                    <ObjectListItem intro="" title="Work From Home" number="10 points" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false">
                         <attributes/>
                         <firstStatus/>
                         <secondStatus/>

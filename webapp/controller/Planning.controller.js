@@ -23,6 +23,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				}
 			}
 		},
+		
+				_onSegmentedButtonItemPress1: function() {
+
+    			sap.m.MessageToast.show('Submitted'); // default disappear in 3 sec
+		},
 		_onPageNavButtonPress: function(oEvent) {
 			var oBindingContext = oEvent.getSource().getBindingContext();
 			return new Promise(function(fnResolve) {

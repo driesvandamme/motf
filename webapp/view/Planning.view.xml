@@ -40,6 +40,7 @@
                 </commons:content>
                 <commons:filterList/>
             </commons:Timeline>
+          <Button alignItems="" icon="sap-icon://accept" text="Submit" width="138.8249969482422px" enabled="true" press="_onSegmentedButtonItemPress1"/>
         </content>
         <footer/>
         <headerContent/>
