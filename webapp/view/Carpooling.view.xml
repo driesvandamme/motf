@@ -17,11 +17,6 @@
                                         <firstStatus/>
                                         <secondStatus/>
                                     </ObjectListItem>
-                                    <ObjectListItem intro="" title="No more results" number="" numberUnit="" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress3">
-                                        <attributes/>
-                                        <firstStatus/>
-                                        <secondStatus/>
-                                    </ObjectListItem>
                                 </layout:content>
                             </layout:VerticalLayout>
                         </layout1:control>
@@ -30,7 +25,7 @@
                         <layout1:control>
                             <Toolbar width="320px" height="47px" design="Transparent" visible="true" enabled="true">
                                 <content>
-                                    <Title text="Items (3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                                    <Title text="Carpool with (2)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
                                     <ToolbarSpacer width=""/>
                                     <Button text="" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
                                     <Button text="" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>

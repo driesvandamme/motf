@@ -40,7 +40,11 @@
                 </commons:content>
                 <commons:filterList/>
             </commons:Timeline>
-          <Button alignItems="" icon="sap-icon://accept" text="Submit" width="138.8249969482422px" enabled="true" press="_onSegmentedButtonItemPress1"/>
+            <VBox xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:commons="sap.suite.ui.commons" xmlns:core="sap.ui.core" width="100%" direction="Column" id="__vbox1" alignItems="Center">
+                <items>
+                    <Button xmlns:mvc="sap.ui.core.mvc" xmlns:commons="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns="sap.m" alignItems="" icon="sap-icon://accept" text="Submit" width="138.8249969482422px" enabled="true" press="_onSegmentedButtonItemPress1" id="__button1"/>
+                </items>
+            </VBox>
         </content>
         <footer/>
         <headerContent/>

@@ -166,21 +166,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				});
 			},
 			_onButtonPress: function(oEvent) {
-
 				var oBindingContext = oEvent.getSource().getBindingContext();
-
 				return new Promise(function(fnResolve) {
-
 					this.doNavigate("Settings", oBindingContext, fnResolve, "");
 				}.bind(this)).catch(function(err) {
 					if (err !== undefined) {
 						MessageBox.error(err.message);
 					}
 				});
-
 			},
 			onChangeDirection: function(oEvent) {
-
 				var idx = oEvent.getParameter("selectedIndex");
 				var homeAddress = "Nieuwstraat+101+Brussel";
 				var workAddress = "Dendermondsesteenweg+39+Gent";
@@ -228,7 +223,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						arrivalTime = transitData.routes[0].legs[0].arrival_time.text;
 						that.getView().byId("idTrainTileContent").setProperty("footer", departureTime + "-" + arrivalTime);
 						that.getView().byId("idTrainTile").setProperty("subheader", transitTime + " for " + transitDistance + " kilometers");
-
 					},
 					error: function(xhr, status) {
 						console.log("ERROR");

@@ -1,9 +1,19 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.CarpoolSubmit" xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.sap.build.standard.hackathon2018.controller.CarpoolSubmit">
 	<Page showHeader="true" title="Carpooling" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-            <Title text="Approximate carpool time with Jason:" titleStyle="Auto" width="320px" textAlign="Center" visible="true"/>
-            <Text text="34Min" width="314px" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit"/>
-                    	<Button icon="sap-icon://taxi" text="Propose pick-up" width="auto" enabled="true" press="_onSegmentedButtonItemPress"/>
-                        <Button icon="sap-icon://accept" text="Submit" width="138.8249969482422px" enabled="true" press="_onSegmentedButtonItemPress1"/>
-		<HBox id="map_canvas" fitContainer="true" justifyContent="Center" alignItems="Center" />
+	<content>
+	    <VBox width="100%" direction="Column" id="__vbox0" alignContent="Center" alignItems="Center">
+	        <items>
+	            <Title xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" text="Approximate carpool time with Jason:" titleStyle="Auto" width="320px" textAlign="Center" visible="true" id="__title1"/>
+	            <Text xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" text="34Min" width="314px" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit" id="__text1"/>
+	            <layout:HorizontalLayout id="__layout0">
+	                <layout:content>
+	                    <Button xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" icon="sap-icon://taxi" text="Propose pick-up" width="auto" enabled="true" press="_onSegmentedButtonItemPress" id="__button2"/>
+	                    <Button xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" icon="sap-icon://accept" text="Submit" width="138.8249969482422px" enabled="true" press="_onSegmentedButtonItemPress1" id="__button3"/>
+	                </layout:content>
+	            </layout:HorizontalLayout>
+	        </items>
+	    </VBox>
+	    <HBox xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:vbm="sap.ui.vbm" xmlns:layout1="sap.ui.commons.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" id="map_canvas" fitContainer="true" justifyContent="Center" alignItems="Center"/>
+	</content>
 	</Page>
 </mvc:View>

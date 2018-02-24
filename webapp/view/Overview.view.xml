@@ -1,5 +1,5 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.hackathon2018.controller.Overview" xmlns="sap.m">
-	<Page showHeader="true" title="Overview" showFooter="false" showNavButton="false" xmlns:l="sap.ui.layout">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.sap.build.standard.hackathon2018.controller.Overview">
+	<Page xmlns:l="sap.ui.layout" showHeader="true" title="Overview" showFooter="false" showNavButton="false">
 		<content>
 			<Toolbar>
 				<RadioButtonGroup select="onChangeDirection" columns="2">
@@ -9,83 +9,101 @@
 					</buttons>
 				</RadioButtonGroup>
 			</Toolbar>
-			<GenericTile id="idTrainTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by train">
-				<TileContent id="idTrainTileContent" unit="Points">
-					<NumericContent value="9" valueColor="Neutral" indicator="None" icon="sap-icon://passenger-train"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile id="idCarTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by car">
-				<TileContent id="idCarTileContent" unit="Points">
-					<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile id="idBikeTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel by bike">
-				<TileContent id="idBikeTileContent" unit="Points">
-					<NumericContent value="10" valueColor="Neutral" indicator="None" icon="sap-icon://circle-task"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile id="idMyEmpTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Overview Leonardo Belize"
-				press="_onGenericTilePress4">
-				<TileContent id="idMyEmpTileContent" unit="Points">
-					<NumericContent value="300" valueColor="Neutral" indicator="None" icon="sap-icon://employee"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Planning" subheader="" frameType="Auto"
-				press="_onGenericTilePress">
-				<tileContent>
-					<TileContent footer="" unit="Days">
-						<content>
-							<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://date-time"/>
-						</content>
-					</TileContent>
-				</tileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Carpool" subheader="" frameType="Auto"
-				press="_onGenericTilePress2">
-				<tileContent>
-					<TileContent footer="" unit="Options">
-						<content>
+			<Panel id="__panel0" headerText="Commute" expandable="true" expanded="true"> 
+				<content>
+					<GenericTile id="idTrainTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Train"
+						visible="{settings>/trainActive}">
+						<TileContent id="idTrainTileContent" unit="Points">
+							<NumericContent value="9" valueColor="Neutral" indicator="None" icon="sap-icon://passenger-train"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile id="idCarTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Car"
+						visible="{settings>/carActive}">
+						<TileContent id="idCarTileContent" unit="Points">
 							<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
-						</content>
-					</TileContent>
-				</tileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Achievements" subheader="Earned" frameType="Auto" press="_onGenericTilePress5">
-				<tileContent>
-					<TileContent footer="" unit="Achievements">
-						<content>
-							<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://competitor"/>
-						</content>
-					</TileContent>
-				</tileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Rewards" subheader="Earned" frameType="Auto" press="_onGenericTilePress1">
-				<tileContent>
-					<TileContent footer="" unit="Points">
-						<content>
-							<NumericContent value="300" valueColor="Neutral" indicator="None" icon="sap-icon://number-sign"/>
-						</content>
-					</TileContent>
-				</tileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Company" subheader="Coefficient" frameType="Auto" press="_onGenericTilePress3">
-				<tileContent>
-					<TileContent footer="" unit="">
-						<content>
-							<NumericContent value="8,2" valueColor="Neutral" indicator="None"/>
-						</content>
-					</TileContent>
-				</tileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Rules" subheader="How to play?" frameType="Auto" press="_onGenericTilePress6">
-				<TileContent unit="" footer="">
-					<ImageContent src="sap-icon://hint" />
-				</TileContent>
-			</GenericTile>
+						</TileContent>
+					</GenericTile>
+					<GenericTile id="idBikeTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Bike"
+						visible="{settings>/bikeActive}">
+						<TileContent id="idBikeTileContent" unit="Points">
+							<NumericContent value="10" valueColor="Neutral" indicator="None" icon="sap-icon://circle-task"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Carpool" subheader="" frameType="Auto"
+						press="_onGenericTilePress2" visible="{settings>/carActive}">
+						<tileContent>
+							<TileContent footer="" unit="Options">
+								<content>
+									<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://taxi"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				</content>
+			</Panel>
+			<Panel id="__panel1" headerText="Personal" expandable="true">
+				<content>
+					<GenericTile id="idMyEmpTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Profile"
+						press="_onGenericTilePress4">
+						<TileContent id="idMyEmpTileContent" unit="Points">
+							<NumericContent value="300" valueColor="Neutral" indicator="None" icon="sap-icon://employee"/>
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Planning" subheader="" frameType="Auto"
+						press="_onGenericTilePress">
+						<tileContent>
+							<TileContent footer="" unit="Days">
+								<content>
+									<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://date-time"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Achievements" subheader="Earned" frameType="Auto"
+						press="_onGenericTilePress5">
+						<tileContent>
+							<TileContent footer="" unit="Achievements">
+								<content>
+									<NumericContent value="3" valueColor="Neutral" indicator="None" icon="sap-icon://competitor"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Rewards" subheader="Earned" frameType="Auto"
+						press="_onGenericTilePress1">
+						<tileContent>
+							<TileContent footer="" unit="Points">
+								<content>
+									<NumericContent value="300" valueColor="Neutral" indicator="None" icon="sap-icon://number-sign"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				</content>
+			</Panel>
+			<Panel id="__panel2" headerText="Information" expandable="true">
+				<content>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Company" subheader="Coefficient" frameType="Auto"
+						press="_onGenericTilePress3">
+						<tileContent>
+							<TileContent footer="" unit="">
+								<content>
+									<NumericContent value="8,2" valueColor="Neutral" indicator="None"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Rules" subheader="How to play?" frameType="Auto"
+						press="_onGenericTilePress6">
+						<TileContent unit="" footer="">
+							<ImageContent src="sap-icon://hint"/>
+						</TileContent>
+					</GenericTile>
+				</content>
+			</Panel>
 			<List id="notificationList" class="sapContrast sapContrastPlus sapUiTinyMarginBegin sapUiTinyMarginTop" width="99%">
 				<NotificationListItem title="Potential carpool options" description="Jason Wouters, Elise Van Veen are taking the same route as you. "
-					showCloseButton="true" unread="true" priority="High" close="onItemClose" press="onListItemPress" authorPicture="sap-icon://group">
-				</NotificationListItem>
+					showCloseButton="true" unread="true" priority="High" close="onItemClose" press="onListItemPress" authorPicture="sap-icon://group"/>
 			</List>
 		</content>
 		<headerContent>
