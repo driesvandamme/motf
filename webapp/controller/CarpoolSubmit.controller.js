@@ -98,8 +98,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 
 		_onSegmentedButtonItemPress1: function() {
-
-    			sap.m.MessageToast.show('Send to Jonas'); // default disappear in 3 sec
+    		sap.m.MessageToast.show('Notification sent to Jason.'); // default disappear in 3 sec
+    		this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+    		var that = this;
+    		setTimeout(function(){
+	    		that.getView().getModel("settings").setProperty("/commuteActive", true);
+				that.oRouter.navTo("default", true);
+    		}, 750);
 		},
 
 		onAfterRendering: function() {

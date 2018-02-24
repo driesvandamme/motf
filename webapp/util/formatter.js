@@ -7,6 +7,11 @@ sap.ui.define(function() {
 			} else {
 				return false;
 			}
+		},
+		isTripTypeVisible: function(transportMethodActive, commuteActive){
+			if(commuteActive){ return false; }
+			if(transportMethodActive){ return true; }
+			return false;
 		}
 	};
 });

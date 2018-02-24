@@ -9,7 +9,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Planning", {
 		formatter: Formatter,
 		handleRouteMatched: function(oEvent) {
-			debugger;
 			var oParams = {};
 			if (oEvent.mParameters.data.context) {
 				this.sContext = oEvent.mParameters.data.context;

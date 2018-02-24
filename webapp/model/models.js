@@ -28,7 +28,8 @@ sap.ui.define([
 						"busActive" : false,
 						"bikeActive" : true,
 						"trainActive" : false,
-						"tramActive" : false
+						"tramActive" : false,
+						"commuteActive" : false
 					});
 				oModel.setDefaultBindingMode("TwoWay");
 				return oModel;

@@ -11,30 +11,35 @@
 			</Toolbar>
 			<Panel id="__panel0" headerText="Commute" expandable="true" expanded="true"> 
 				<content>
-					<GenericTile id="idTrainTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Train"
-						visible="{settings>/trainActive}">
+					<GenericTile id="idTrainTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Train" press="startTrip" visible="{parts: [{path: 'settings>/trainActive'}, {path: 'settings>/commuteActive'}], formatter: '.formatter.isTripTypeVisible'}" >
 						<TileContent id="idTrainTileContent" unit="Points">
 							<NumericContent value="9" valueColor="Neutral" indicator="None" icon="sap-icon://passenger-train"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile id="idCarTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Car"
-						visible="{settings>/carActive}">
+					<GenericTile id="idCarTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Car" press="startTrip" visible="{parts: [{path: 'settings>/carActive'}, {path: 'settings>/commuteActive'}], formatter: '.formatter.isTripTypeVisible'}">
 						<TileContent id="idCarTileContent" unit="Points">
 							<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://car-rental"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile id="idBikeTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Bike"
-						visible="{settings>/bikeActive}">
+					<GenericTile id="idBikeTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Travel By Bike" press="startTrip" visible="{parts: [{path: 'settings>/bikeActive'}, {path: 'settings>/commuteActive'}], formatter: '.formatter.isTripTypeVisible'}">
 						<TileContent id="idBikeTileContent" unit="Points">
 							<NumericContent value="10" valueColor="Neutral" indicator="None" icon="sap-icon://circle-task"/>
 						</TileContent>
 					</GenericTile>
-					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Carpool" subheader="" frameType="Auto"
-						press="_onGenericTilePress2" visible="{settings>/carActive}">
+					<GenericTile id="idCarpoolTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Carpool" subheader="" frameType="Auto" press="_onGenericTilePress2" visible="{parts: [{path: 'settings>/carActive'}, {path: 'settings>/commuteActive'}], formatter: '.formatter.isTripTypeVisible'}">
 						<tileContent>
 							<TileContent footer="" unit="Options">
 								<content>
 									<NumericContent value="2" valueColor="Neutral" indicator="None" icon="sap-icon://taxi"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+					<GenericTile id="idStopTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Stop" press="stopTrip" visible="{settings>/commuteActive}">
+						<tileContent>
+							<TileContent footer="" unit="">
+								<content>
+									<ImageContent src="sap-icon://stop"/>
 								</content>
 							</TileContent>
 						</tileContent>

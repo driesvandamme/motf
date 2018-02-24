@@ -2,15 +2,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		"sap/m/MessageBox",
 		"./utilities",
 		"sap/ui/core/routing/History",
-		"sap/ui/model/json/JSONModel"
-	], function(BaseController, MessageBox, Utilities, History, JSONModel) {
+		"sap/ui/model/json/JSONModel",
+		"../util/formatter"
+	], function(BaseController, MessageBox, Utilities, History, JSONModel, Formatter) {
 		"use strict";
 
 		return BaseController.extend("com.sap.build.standard.hackathon2018.controller.Overview", {
+			formatter: Formatter,
 			handleRouteMatched: function(oEvent) {
-
 				var oParams = {};
-
 				if (oEvent.mParameters.data.context) {
 					this.sContext = oEvent.mParameters.data.context;
 					var oPath;
@@ -22,21 +22,23 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						this.getView().bindObject(oPath);
 					}
 				}
-
+			},
+			startTrip: function(oEvent){
+    			sap.m.MessageToast.show('Have a good trip!'); // default disappear in 3 sec
+    			this.getView().getModel("settings").setProperty("/commuteActive", true);
+			},
+			stopTrip: function(oEvent){
+				this.getView().getModel("settings").setProperty("/commuteActive", false);
 			},
 			_onGenericTilePress: function(oEvent) {
-
 				var oBindingContext = oEvent.getSource().getBindingContext();
-
 				return new Promise(function(fnResolve) {
-
 					this.doNavigate("Planning", oBindingContext, fnResolve, "");
 				}.bind(this)).catch(function(err) {
 					if (err !== undefined) {
 						MessageBox.error(err.message);
 					}
 				});
-
 			},
 			doNavigate: function(sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
 
